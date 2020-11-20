@@ -1,4 +1,4 @@
-import Route from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import "./App.css";
@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Route path="/">
+      <Route exact path="/">
         <Home />
       </Route>
       <Route path="/about">
