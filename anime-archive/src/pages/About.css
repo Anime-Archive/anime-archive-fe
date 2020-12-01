@@ -45,7 +45,7 @@
 
 .dev-info {
   padding-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 8%;
 }
 
 .contact {
@@ -60,6 +60,7 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
   height: 125px;
+  margin-bottom: 75px;
 }
 
 .card-content-conatiner {

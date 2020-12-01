@@ -1,9 +1,9 @@
 import React from "react";
 import "./About.css";
-import Erik from "../assets/img/Erik.jpeg";
 import portfolio from "../assets/icons/portfolio.png";
 import github from "../assets/icons/github.png";
 import linkedin from "../assets/icons/linkedin.png";
+import { developerData } from "../utils/index.js";
 
 export default function About() {
   return (
@@ -26,33 +26,43 @@ export default function About() {
         <section className="sub-section">
           <div className="meet-the-developers">
             <h5 className="subheading developers">Meet the Developers</h5>
-            <div className="card">
-              <div className="card-content-conatiner">
-                <div className="developer-img-container">
-                  <img className="developer-img" src={Erik} />
-                </div>
-                <div className="content">
-                  <div className="dev-info">
-                    <p className="card-text">Josue Rodriguez</p>
-                    <p className="card-text">Software Engineer</p>
+
+            {/* Displaying cards for each developer who worked on application */}
+            {developerData.map((developer) => (
+              <div className="card">
+                <div className="card-content-conatiner">
+                  <div className="developer-img-container">
+                    <img className="developer-img" src={developer.img} />
                   </div>
-                  <div className="about-contact-info">
-                    <p className="contact">Contact:</p>
-                    <div className="about-icon-container">
-                      <div className="icon-container">
-                        <img src={portfolio} />
-                      </div>
-                      <div className="icon-container">
-                        <img src={linkedin} />
-                      </div>
-                      <div className="icon-container">
-                        <img src={github} />
+                  <div className="content">
+                    <div className="dev-info">
+                      <p className="card-text">{developer.name}</p>
+                      <p className="card-text">{developer.role}</p>
+                    </div>
+                    <div className="about-contact-info">
+                      <p className="contact">Contact:</p>
+                      <div className="about-icon-container">
+                        <a href={developer.media.github} target="_blank">
+                          <div className="icon-container">
+                            <img src={portfolio} />
+                          </div>
+                        </a>
+                        <a href={developer.media.github} target="_blank">
+                          <div className="icon-container">
+                            <img src={linkedin} />
+                          </div>
+                        </a>
+                        <a href={developer.media.github} target="_blank">
+                          <div className="icon-container">
+                            <img src={github} />
+                          </div>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
       </div>
