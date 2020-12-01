@@ -1,5 +1,6 @@
 import Logo from "../components/logo/Logo";
 import Carousel from "../components/carousel/Carousel.js";
+import Section from "../components/section/Section.js";
 import SearchImg from "../assets/icons/searchIcon.png";
 import "../App.css";
 
@@ -13,6 +14,8 @@ export default function Home() {
       </header>
 
       <Carousel />
+
+      <Section />
     </div>
   );
 }

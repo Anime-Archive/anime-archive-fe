@@ -17,7 +17,6 @@ const Carousel = () => {
           <CarouselCard key={item.id} data={item} />
         ))}
       </div>
-      <p>carousel</p>
     </section>
   );
 };
