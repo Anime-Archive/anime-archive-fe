@@ -11,8 +11,12 @@ const CarouselCard = (props) => {
 
       <label>
         {`${props.data.recommend}% Recommend`}
-        <br />
-        <progress value={`${props.data.recommend}`} max="100" />
+        <div className="recommendBar">
+          <div
+            className="recommendFill"
+            style={{ width: `${props.data.recommend}%` }}
+          />
+        </div>
       </label>
     </div>
   );
