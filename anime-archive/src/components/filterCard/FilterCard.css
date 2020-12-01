@@ -1,0 +1,7 @@
+.filterCard {
+  width: 320px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

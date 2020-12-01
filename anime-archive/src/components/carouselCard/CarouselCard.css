@@ -1,0 +1,12 @@
+.carouselCard {
+  /* border: 1px solid red; */
+  margin: 0px 5px;
+  padding: 3%;
+}
+
+.carouselImage img {
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 173px;
+  height: 261.76px;
+}
