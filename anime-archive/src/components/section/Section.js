@@ -1,7 +1,7 @@
 import AnimeCard from "../../components/animeCard/AnimeCard.js";
 import "./Section.css";
 
-const Section = () => {
+const Section = (props) => {
   return (
     <section>
       <div className="sectionHeader">
