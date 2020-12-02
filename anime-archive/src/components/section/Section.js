@@ -1,4 +1,4 @@
-// import AnimeCard from "../../components/animeCard/AnimeCard.js"
+import AnimeCard from "../../components/animeCard/AnimeCard.js";
 import "./Section.css";
 
 const Section = () => {
@@ -9,7 +9,7 @@ const Section = () => {
         <p>view more</p>
       </div>
 
-      {/* <AnimeCard /> */}
+      <AnimeCard />
     </section>
   );
 };
