@@ -6,9 +6,11 @@ const Section = (props) => {
     <section>
       <div className="sectionHeader">
         <h3>{props.data.sectionNames}</h3>
+        {/* Wrap view more with dynamic link to push to searchpage based on section user wants to view more in link */}
         <p>view more</p>
       </div>
 
+      {/* With query we can pull 4 cards and cycle through dynamically */}
       {props.data.query.map((item) => (
         <AnimeCard key={item.id} data={item} />
       ))}

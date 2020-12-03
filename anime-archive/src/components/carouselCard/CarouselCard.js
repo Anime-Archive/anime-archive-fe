@@ -11,7 +11,10 @@ const CarouselCard = (props) => {
 
       <label>
         {`${props.data.recommend}% Recommend`}
+
+        {/* Parent div below is the container for the progress bar background in gray */}
         <div className="recommendBar">
+          {/* Inner self closing div is the dynamic bar that fills the progress bar */}
           <div
             className="recommendFill"
             style={{ width: `${props.data.recommend}%` }}

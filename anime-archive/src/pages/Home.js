@@ -10,12 +10,13 @@ export default function Home() {
     <div>
       <header>
         <Logo />
-        {/* Wrap link or onClick to send to searchpage vvvvvv */}
+        {/* Wrap link or onClick to send to searchpage below */}
         <img src={SearchImg} alt="search icon" />
       </header>
 
       <Carousel />
 
+      {/* Our sections will be created with sectiondata structure and will spit out cards with query used to pull data from api */}
       {sectionData.map((item) => (
         <Section key={item.id} data={item} />
       ))}
