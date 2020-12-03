@@ -5,6 +5,7 @@
   position: relative;
   height: 125px;
   margin-bottom: 75px;
+  max-width: 400px;
 }
 
 .card-content-conatiner {
@@ -28,14 +29,14 @@
 }
 
 .dev-info {
-  padding-top: 5%;
-  margin-bottom: 8%;
+  padding-top: 5px;
+  margin-bottom: 15px;
 }
 
 .card-text {
   color: #f8f8ff;
   font-size: 1.2rem;
-  padding-bottom: 2%;
+  padding-bottom: 2px;
 }
 
 .about-contact-info {
@@ -45,7 +46,7 @@
 .contact {
   color: #f8f8ff;
   font-size: 1rem;
-  margin-bottom: 5%;
+  margin-bottom: 10px;
 }
 
 .about-icon-container {
