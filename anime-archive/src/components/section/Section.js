@@ -5,11 +5,13 @@ const Section = (props) => {
   return (
     <section>
       <div className="sectionHeader">
-        <h4>Title</h4>
+        <h3>{props.data.sectionNames}</h3>
         <p>view more</p>
       </div>
 
-      <AnimeCard />
+      {props.data.query.map((item) => (
+        <AnimeCard key={item.id} data={item} />
+      ))}
     </section>
   );
 };

@@ -1,0 +1,25 @@
+.animeCard {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 2% 0;
+}
+
+.cardImage {
+  margin: 2%;
+  padding: 2%;
+}
+
+.cardImage img {
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 94px;
+  height: 139.99px;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  padding: 2%;
+}

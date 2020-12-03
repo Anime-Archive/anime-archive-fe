@@ -1,6 +1,7 @@
 import Logo from "../components/logo/Logo";
 import Carousel from "../components/carousel/Carousel.js";
 import Section from "../components/section/Section.js";
+import { sectionData } from "../utils/sectionData";
 import SearchImg from "../assets/icons/searchIcon.png";
 import "../App.css";
 
@@ -15,7 +16,9 @@ export default function Home() {
 
       <Carousel />
 
-      <Section />
+      {sectionData.map((item) => (
+        <Section key={item.id} data={item} />
+      ))}
     </div>
   );
 }
