@@ -17,8 +17,8 @@ export default function Home() {
       <Carousel />
 
       {/* Our sections will be created with sectiondata structure and will spit out cards with query used to pull data from api */}
-      {sectionData.map((item) => (
-        <Section key={item.id} data={item} />
+      {sectionData.map((section) => (
+        <Section key={section.id} data={section} />
       ))}
     </div>
   );

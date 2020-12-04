@@ -7,15 +7,15 @@ const Carousel = () => {
   return (
     <section>
       <div className="filters">
-        {filterData.map((item) => (
-          <FilterCard key={item.id} data={item} />
+        {filterData.map((filter) => (
+          <FilterCard key={filter.id} data={filter} />
         ))}
       </div>
 
       {/* Query for carousel data based on filter selected above to dynamically populate carousel container below */}
       <div className="cardContainer">
-        {carouselData.map((item) => (
-          <CarouselCard key={item.id} data={item} />
+        {carouselData.map((card) => (
+          <CarouselCard key={card.id} data={card} />
         ))}
       </div>
     </section>

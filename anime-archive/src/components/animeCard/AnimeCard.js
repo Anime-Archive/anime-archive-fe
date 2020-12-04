@@ -18,6 +18,9 @@ const AnimeCard = (props) => {
 
   const newMonth = month[props.data.month];
 
+  // Above object is being used to turn integer month returned from api into a string month
+  // Then saving it as variable to use for start date in card below
+
   return (
     <div className="animeCard">
       <div className="cardImage">
