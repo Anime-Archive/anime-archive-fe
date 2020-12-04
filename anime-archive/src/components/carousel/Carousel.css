@@ -1,0 +1,9 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContainer {
+  display: flex;
+  overflow-x: scroll;
+}

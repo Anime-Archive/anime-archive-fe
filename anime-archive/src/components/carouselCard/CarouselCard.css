@@ -1,0 +1,28 @@
+.carouselCard {
+  margin: 0 8px;
+  padding: 3% 2.5% 8% 0;
+}
+
+.carouselImage img {
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 173px;
+  height: 261.76px;
+}
+
+.recommendBar {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background: #c4c4c4;
+  border-radius: 20px;
+  width: 152px;
+  height: 9px;
+  padding: 0.5px 1.5px;
+}
+
+.recommendFill {
+  background: lime;
+  border-radius: 20px;
+  height: 6px;
+}
