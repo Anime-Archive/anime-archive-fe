@@ -1,3 +1,6 @@
+/* fonts */
+
+/* CSS reset */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,10 +9,4 @@
 }
 html {
   font-size: 62.5%;
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
 }
