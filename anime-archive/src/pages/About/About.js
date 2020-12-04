@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../../components/logo/Logo";
 import "./About.css";
 import { DevCard } from "../../components/devCard/DevCard.js";
 
@@ -6,6 +7,7 @@ export default function About() {
   return (
     <section id="about">
       <div className="about">
+        <Logo />
         <section className="sub-section">
           <div className="anime-lovers">
             <h5 className="subheading">Anime Lovers</h5>

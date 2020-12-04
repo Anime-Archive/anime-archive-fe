@@ -1,4 +1,6 @@
 /* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap");
 
 /* CSS reset */
 * {
@@ -9,4 +11,14 @@
 }
 html {
   font-size: 62.5%;
+}
+
+h1 {
+  font-family: Amaranth;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+span {
+  color: #315aeb;
 }
