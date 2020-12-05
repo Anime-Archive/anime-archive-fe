@@ -10,7 +10,7 @@ export default function About() {
         <Logo />
         <section className="sub-section">
           <div className="anime-lovers">
-            <h5 className="subheading">Anime Lovers</h5>
+            <h2 className="subheading">Anime Lovers</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -24,7 +24,7 @@ export default function About() {
         </section>
         <section className="sub-section">
           <div className="meet-the-developers">
-            <h5 className="subheading developers">Meet the Developers</h5>
+            <h2 className="subheading developers">Meet the Developers</h2>
             {/* Displaying cards for each developer who worked on application */}
             <DevCard />
           </div>

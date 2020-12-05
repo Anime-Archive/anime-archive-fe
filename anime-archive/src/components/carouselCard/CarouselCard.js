@@ -7,10 +7,10 @@ const CarouselCard = (props) => {
         <img src={props.data.cover} alt="anime cover" />
       </div>
 
-      <p>{props.data.name}</p>
+      <h3>{props.data.name}</h3>
 
       <label>
-        {`${props.data.recommend}% Recommend`}
+        <p>{`${props.data.recommend}% Recommend`}</p>
 
         {/* Parent div below is the container for the progress bar background in gray */}
         <div className="recommendBar">
