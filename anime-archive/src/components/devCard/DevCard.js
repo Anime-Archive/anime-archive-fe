@@ -15,11 +15,11 @@ export const DevCard = () => {
             </div>
             <div className="content">
               <div className="dev-info">
-                <p className="card-text">{developer.name}</p>
-                <p className="card-text">{developer.role}</p>
+                <h3 className="card-text">{developer.name}</h3>
+                <h4 className="card-text">{developer.role}</h4>
               </div>
               <div className="about-contact-info">
-                <p className="contact">Contact:</p>
+                <h4 className="contact">Contact:</h4>
                 <div className="about-icon-container">
                   {/* Displays a btn with an icon that links to respective source */}
                   {developer.media.map((source) => (

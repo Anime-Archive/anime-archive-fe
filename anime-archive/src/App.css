@@ -1,15 +1,55 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap");
+
+/* CSS reset */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   max-width: 100%;
 }
+
 html {
   font-size: 62.5%;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
+
+/* Logo */
+h1 {
+  font-family: Amaranth;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+span {
+  color: #315aeb;
+}
+
+/* Section Titles */
+h2 {
+  font-family: Alef;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* Card Title */
+h3 {
+  font-family: Alef;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+/* Card Sub Title */
+h4 {
+  font-family: Alef;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* Main text */
+p {
+  font-family: Alef;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #878787;
 }

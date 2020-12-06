@@ -5,7 +5,7 @@ const Section = (props) => {
   return (
     <section>
       <div className="sectionHeader">
-        <h3>{props.data.sectionNames}</h3>
+        <h2>{props.data.sectionNames}</h2>
         {/* Wrap view more with dynamic link to push to searchpage based on section user wants to view more in link */}
         <p>view more</p>
       </div>

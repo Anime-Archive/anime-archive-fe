@@ -28,12 +28,12 @@ const AnimeCard = (props) => {
       </div>
 
       <div className="cardDetails">
-        <p>{props.data.name}</p>
-        <h8>Start Date</h8>
-        <h9>{`${newMonth} ${props.data.day}, ${props.data.year}`}</h9>
+        <h3>{props.data.name}</h3>
+        <h4>Start Date</h4>
+        <p>{`${newMonth} ${props.data.day}, ${props.data.year}`}</p>
         <br />
-        <h8>Status</h8>
-        <h9>{props.data.status}</h9>
+        <h4>Status</h4>
+        <p>{props.data.status}</p>
       </div>
     </div>
   );
