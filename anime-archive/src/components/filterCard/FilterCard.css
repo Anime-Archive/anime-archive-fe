@@ -1,7 +1,21 @@
 .filterCard {
+  margin: 5px 0;
   width: 320px;
   height: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.filterContent p {
+  margin: 8px 0;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
 }
