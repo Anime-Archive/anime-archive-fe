@@ -4,7 +4,7 @@ const Logo = () => {
   // Official Logo of Anime Archive
   // The span tag wrapping Archive is what gives the special purple color
   return (
-    <h1>
+    <h1 className="main-logo">
       Anime <span>Archive</span>
     </h1>
   );
