@@ -3,6 +3,10 @@
   padding: 3% 2.5% 8% 0;
 }
 
+.carouselCardTitle {
+  margin-bottom: 5px;
+}
+
 .carouselImage img {
   border-radius: 25px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -22,7 +26,26 @@
 }
 
 .recommendFill {
-  background: lime;
   border-radius: 20px;
   height: 6px;
+  max-width: 100%;
+}
+
+.A {
+  background-color: #ff0003;
+  background-image: linear-gradient(
+    90deg,
+    #ff0003 20%,
+    #fff400 54%,
+    #00ff17 85%
+  );
+}
+
+.C {
+  background-color: #ff0003;
+  background-image: linear-gradient(90deg, #ff0003 40%, #fff400 83%);
+}
+
+.F {
+  background-color: #ff0003;
 }
