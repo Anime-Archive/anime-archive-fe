@@ -19,8 +19,10 @@
 .searchBar input {
   border: none;
   outline: none;
-  width: 85%;
+  background: none;
+  border-radius: 25px;
+  width: 90%;
   height: 40px;
   font-size: 1.5rem;
-  padding-left: 7px;
+  padding: 0px 5px;
 }
