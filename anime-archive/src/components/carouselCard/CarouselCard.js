@@ -33,7 +33,7 @@ const CarouselCard = (props) => {
 
           <div
             className={`recommendFill ${grade}`}
-            style={{ width: `${props.data.recommend}%` }}
+            style={{ width: `${rating}%` }}
           />
         </div>
       </label>

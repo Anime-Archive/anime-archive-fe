@@ -7,7 +7,7 @@
   display: flex;
   overflow-x: scroll;
   margin: 10px 0px 15px 0;
-  /* Removes horizontal scrollbar for ... */
+  /* Removes desktop horizontal scrollbar for ... */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
