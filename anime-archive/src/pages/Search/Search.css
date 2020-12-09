@@ -1,6 +1,6 @@
 .searchSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 0px 5px;
 }
@@ -10,21 +10,25 @@
   height: 40px;
   border-radius: 25px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-left: 10px;
   display: flex;
-  justify-content: left;
+  justify-content: space-around;
   align-items: center;
+  padding: 0px 5px;
 }
 
-.searchBar input {
-  border: none;
+.searchBar form {
+  width: 73%;
+  height: 40px;
+}
+
+.searchBar form input {
+  border: 1px solid red;
   outline: none;
   background: none;
-  border-radius: 25px;
-  width: 90%;
+  width: 100%;
   height: 40px;
   font-size: 1.5rem;
-  padding: 0px 5px;
+  padding: 0px 3px;
 }
 
 .load {

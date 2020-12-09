@@ -30,6 +30,7 @@ export default function Search() {
       <div className="searchSection">
         <div className="searchBar">
           <img src={SearchIcon} alt="search" />
+
           <form onSubmit={(event) => searchSubmit(event)}>
             <input
               type="text"
@@ -40,8 +41,7 @@ export default function Search() {
               placeholder="Ex: One Piece"
             />
           </form>
-        </div>
-        <div>
+
           <img src={FilterIcon} alt="filter" />
         </div>
       </div>
