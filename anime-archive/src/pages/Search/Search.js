@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Logo from "../../components/logo/Logo.js";
 import AnimeCard from "../../components/animeCard/AnimeCard.js";
+import BackToTop from "../../components/backToTop/BackToTop.js";
 import { animeData } from "../../utils/animeData.js";
 import SearchIcon from "../../assets/icons/searchIcon.png";
 import FilterIcon from "../../assets/icons/filterIcon.png";
@@ -26,6 +27,8 @@ export default function Search() {
       <header>
         <Logo />
       </header>
+
+      <BackToTop />
 
       <div className="searchSection">
         <div className="searchBar">

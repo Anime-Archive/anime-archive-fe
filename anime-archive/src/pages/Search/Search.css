@@ -22,7 +22,7 @@
 }
 
 .searchBar form input {
-  border: 1px solid red;
+  border: none;
   outline: none;
   background: none;
   width: 100%;
