@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Logo.css";
 
 const Logo = () => {
@@ -5,7 +6,9 @@ const Logo = () => {
   // The span tag wrapping Archive is what gives the special purple color
   return (
     <h1 className="main-logo">
-      Anime <span>Archive</span>
+      <Link to="/" className="links">
+        Anime <span>Archive</span>
+      </Link>
     </h1>
   );
 };

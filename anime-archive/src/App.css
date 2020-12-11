@@ -59,3 +59,9 @@ p {
   font-weight: 400;
   color: #878787;
 }
+
+/* Removes text decoration */
+.links {
+  text-decoration: none;
+  color: black;
+}

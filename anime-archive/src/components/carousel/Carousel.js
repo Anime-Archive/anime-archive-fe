@@ -10,7 +10,6 @@ const Carousel = () => {
     oldFilter.remove();
 
     const newFilter = document.querySelector(`.filter-${filterId}`);
-    console.log(newFilter, filterId);
 
     const dot = document.createElement("div");
     dot.classList.add("activeDot");
