@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../components/logo/Logo";
 import Carousel from "../../components/carousel/Carousel.js";
 import Section from "../../components/section/Section.js";
@@ -11,7 +12,9 @@ export default function Home() {
       <header>
         <Logo />
         {/* Wrap link or onClick to send to searchpage below */}
-        <img src={SearchImg} alt="search icon" />
+        <Link to="/search">
+          <img src={SearchImg} alt="search icon" />
+        </Link>
       </header>
 
       <Carousel />
