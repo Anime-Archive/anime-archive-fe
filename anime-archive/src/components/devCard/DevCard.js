@@ -11,7 +11,11 @@ export const DevCard = () => {
         <div key={developer.id} className="card">
           <div className="card-content-conatiner">
             <div className="developer-img-container">
-              <img className="developer-img" src={developer.img} />
+              <img
+                className="developer-img"
+                src={developer.img}
+                alt="developer"
+              />
             </div>
             <div className="content">
               <div className="dev-info">
@@ -23,9 +27,14 @@ export const DevCard = () => {
                 <div className="about-icon-container">
                   {/* Displays a btn with an icon that links to respective source */}
                   {developer.media.map((source) => (
-                    <a key={source.id} href={source.link} target="_blank">
+                    <a
+                      key={source.id}
+                      href={source.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <div className="icon-container">
-                        <img src={source.icon} />
+                        <img src={source.icon} alt="media source" />
                       </div>
                     </a>
                   ))}
