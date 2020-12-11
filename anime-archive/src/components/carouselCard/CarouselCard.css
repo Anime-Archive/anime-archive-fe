@@ -1,6 +1,14 @@
 .carouselCard {
   margin: 0 8px;
-  padding: 3% 2.5% 8% 0;
+  padding: 3% 5% 0% 0;
+}
+
+.carouselCardTitle {
+  margin-bottom: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 173px;
+  overflow: hidden;
 }
 
 .carouselImage img {
@@ -22,7 +30,26 @@
 }
 
 .recommendFill {
-  background: lime;
   border-radius: 20px;
   height: 6px;
+  max-width: 100%;
+}
+
+.A {
+  background-color: #ff0003;
+  background-image: linear-gradient(
+    90deg,
+    #ff0003 20%,
+    #fff400 54%,
+    #00ff17 85%
+  );
+}
+
+.C {
+  background-color: #ff0003;
+  background-image: linear-gradient(90deg, #ff0003 40%, #fff400 83%);
+}
+
+.F {
+  background-color: #ff0003;
 }

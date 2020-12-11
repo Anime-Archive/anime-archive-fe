@@ -14,6 +14,12 @@ html {
   font-size: 62.5%;
 }
 
+/* All content execept footer */
+.primaryContent {
+  border-radius: 0 0 35px 35px;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
 /* Logo */
 h1 {
   font-family: Amaranth;
@@ -52,4 +58,10 @@ p {
   font-size: 1.5rem;
   font-weight: 400;
   color: #878787;
+}
+
+/* Removes text decoration */
+.links {
+  text-decoration: none;
+  color: black;
 }
