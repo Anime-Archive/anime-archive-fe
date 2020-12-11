@@ -3,7 +3,14 @@ import "./FilterCard.css";
 const FilterCard = (props) => {
   return (
     <div className="filterCard">
-      <p>{props.data.name}</p>
+      <div
+        className={`filterContent filter-${props.data.id}`}
+        onClick={() => {
+          props.currentFilter(props.data.id);
+        }}
+      >
+        <p>{props.data.name}</p>
+      </div>
     </div>
   );
 };
