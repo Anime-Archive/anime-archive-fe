@@ -37,12 +37,7 @@ export default function Closerlook() {
           <h4>Genre</h4>
           <p>{data.genres.join(", ")}</p>
 
-          <br />
-
-          {/* Character carousel cards */}
-          <div>
-            <p>characters placeholder</p>
-          </div>
+          {/* Character giant button here */}
 
           <br />
 
