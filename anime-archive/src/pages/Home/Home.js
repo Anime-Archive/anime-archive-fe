@@ -8,85 +8,21 @@ import axios from "axios";
 import { sectionData } from "../../utils/sectionData.js";
 import { useState, useEffect } from "react";
 import { Loader } from "../../components/loader/Loader.js";
+import { fetchHomepage } from "../../graphql/index.js";
 
 export default function Home() {
-  // const dataStructure = {
-  //   POPULAR: "POPULAR_DESC",
-  //   TRENDING: "TRENDING_DESC",
-  //   SCORE: "SCORE_DESC",
-  //   FAVOURITES: "FAVOURITES_DESC",
-  // };
-
-  const sort = "TRENDING_DESC";
-
-  const homepage = `{
-    carousel: Page(page: 1, perPage: 5) {
-      media(type: ANIME, sort: TRENDING_DESC) {
-        id
-        coverImage {
-          medium
-        }
-        title {
-          english
-        }
-        averageScore
-      }
-    }
-    upcoming: Page(page: 1, perPage: 5) {
-      media(type: ANIME, sort: TRENDING_DESC, status: NOT_YET_RELEASED) {
-        id
-        coverImage {
-          large
-        }
-        title {
-          native
-          english
-        }
-        startDate {
-          year
-          month
-          day
-        }
-        status
-      }
-    }
-    airing: Page(page: 1, perPage: 5) {
-      media(type: ANIME, sort: TRENDING_DESC, status: RELEASING) {
-        id
-        coverImage {
-          large
-        }
-        title {
-          native
-          english
-        }
-        startDate {
-          year
-          month
-          day
-        }
-        status
-      }
-    }
-  }  
-  `;
-
   const [apiData, setapiData] = useState(null);
 
   useEffect(async () => {
     await axios
-      .post("https://graphql.anilist.co", { query: homepage })
+      .post("https://graphql.anilist.co", { query: fetchHomepage })
       .then(function (response) {
         setapiData(response);
       })
       .catch(function (error) {
-        console.log(
-          `Error ${error.status} in fetching homepage, ${error.statusText}`
-        );
+        console.log(`Error ${error} in fetching homepage, ${error.statusText}`);
       });
   }, []);
-
-  console.log(apiData);
 
   return (
     <>
@@ -96,7 +32,7 @@ export default function Home() {
         <div>
           <header>
             <Logo />
-            {/* Wrap link or onClick to send to searchpage below */}
+            {/* Wrap link/onClick to send to searchpage below */}
             <Link to="/search">
               <img src={SearchImg} alt="search icon" />
             </Link>
