@@ -5,6 +5,7 @@ import Section from "../../components/section/Section.js";
 import SearchImg from "../../assets/icons/searchIcon.png";
 import "./Home.css";
 import axios from "axios";
+import { sectionData } from "../../utils/sectionData.js";
 import { useState, useEffect } from "react";
 import { Loader } from "../../components/loader/Loader.js";
 
@@ -19,62 +20,64 @@ export default function Home() {
   const sort = "TRENDING_DESC";
 
   const homepage = `{
-    Page(page: 1, perPage: 5) {
-      carousel: media(type: ANIME, sort: ${sort}){
+    carousel: Page(page: 1, perPage: 5) {
+      media(type: ANIME, sort: TRENDING_DESC) {
         id
-        coverImage{
+        coverImage {
           medium
         }
-        title{
+        title {
           english
         }
         averageScore
       }
-      upcoming: media(type: ANIME, sort: TRENDING_DESC, status: NOT_YET_RELEASED) {
-        id
-        coverImage{
-          medium
-        }
-        title {
-          native
-          english
-        }
-        startDate {
-          year
-          month
-          day
-        }
-        status
-      }
-      airing: media(type: ANIME, sort: TRENDING_DESC, status: RELEASING) {
-        id
-        coverImage{
-          medium
-        }
-        title {
-          native
-          english
-        }
-        startDate {
-          year
-          month
-          day
-        }
-        status
-      }
-    
     }
-
-  }
+    upcoming: Page(page: 1, perPage: 5) {
+      media(type: ANIME, sort: TRENDING_DESC, status: NOT_YET_RELEASED) {
+        id
+        coverImage {
+          large
+        }
+        title {
+          native
+          english
+        }
+        startDate {
+          year
+          month
+          day
+        }
+        status
+      }
+    }
+    airing: Page(page: 1, perPage: 5) {
+      media(type: ANIME, sort: TRENDING_DESC, status: RELEASING) {
+        id
+        coverImage {
+          large
+        }
+        title {
+          native
+          english
+        }
+        startDate {
+          year
+          month
+          day
+        }
+        status
+      }
+    }
+  }  
   `;
 
-  const [homeData, setHomeData] = useState(null);
+  const [apiData, setapiData] = useState(null);
 
   useEffect(async () => {
     await axios
       .post("https://graphql.anilist.co", { query: homepage })
       .then(function (response) {
-        setHomeData(response.data.data.Page);
+        setapiData(response);
       })
       .catch(function (error) {
         console.log(
@@ -83,10 +86,11 @@ export default function Home() {
       });
   }, []);
 
-  console.log(homeData.upcoming);
+  console.log(apiData);
+
   return (
     <>
-      {!homeData ? (
+      {!apiData ? (
         <Loader />
       ) : (
         <div>
@@ -100,9 +104,9 @@ export default function Home() {
 
           <Carousel />
           {/* Our sections will be created with sectiondata structure and will spit out cards with query used to pull data from api */}
-          {/* {homeData.upcoming.map((section) => (
-            <Section key={section.id} data={section} homeData={homeData} />
-          ))} */}
+          {sectionData.map((section) => (
+            <Section key={section.id} data={section} apiData={apiData} />
+          ))}
         </div>
       )}
     </>
