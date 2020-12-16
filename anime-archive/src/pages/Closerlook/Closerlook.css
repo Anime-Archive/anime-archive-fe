@@ -1,0 +1,73 @@
+.closerlookBg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.closerlookBg img {
+  filter: brightness(50%);
+}
+
+.closerlookHeroText {
+  position: absolute;
+  color: #ffffff;
+  top: 30px;
+}
+
+.closerlookFloat {
+  background: #ffffff;
+  z-index: 1;
+  position: absolute;
+  top: 90px;
+  padding: 3%;
+  border-radius: 35px;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.closerlookCover {
+  display: flex;
+  margin-bottom: 3%;
+}
+
+.closerlookCover img {
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 142px;
+  height: 197px;
+}
+
+.closerlookStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 3%;
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: #000000;
+  font-size: 1.3rem;
+  text-decoration: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.trailer button {
+  border: none;
+  outline: none;
+  background: none;
+  opacity: 0.5;
+}
+
+.trailer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
