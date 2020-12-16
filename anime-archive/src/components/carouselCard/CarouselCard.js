@@ -1,7 +1,8 @@
 import "./CarouselCard.css";
 
 const CarouselCard = (props) => {
-  var rating = props.data.recommend;
+  const data = props.data;
+  var rating = data.averageScore;
   var grade;
 
   /* 
@@ -19,13 +20,13 @@ const CarouselCard = (props) => {
   return (
     <div className="carouselCard">
       <div className="carouselImage">
-        <img src={props.data.cover} alt="anime cover" />
+        <img src={data.coverImage.large} alt="anime cover" />
       </div>
 
-      <h3 className="carouselCardTitle">{props.data.name}</h3>
+      <h3 className="carouselCardTitle">{data.title.english}</h3>
 
       <label>
-        <p>{`${props.data.recommend}% Recommend`}</p>
+        <p>{`${rating}% Recommend`}</p>
 
         {/* Parent div below is the container for the progress bar background in gray */}
         <div className="recommendBar ">

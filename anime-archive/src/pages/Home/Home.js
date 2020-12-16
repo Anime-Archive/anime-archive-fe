@@ -38,7 +38,7 @@ export default function Home() {
             </Link>
           </header>
 
-          <Carousel />
+          <Carousel apiData={apiData.data.data.carousel.media} />
           {/* Our sections will be created with sectiondata structure and will spit out cards with query used to pull data from api */}
           {sectionData.map((section) => (
             <Section key={section.id} data={section} apiData={apiData} />
