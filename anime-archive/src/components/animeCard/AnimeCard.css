@@ -23,6 +23,14 @@
   height: 150px;
 }
 
+.cardDetails h3 {
+  border: solid 1px red;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 270px;
+  overflow: hidden;
+}
+
 .animeCardTitle {
   margin-bottom: 8px;
 }

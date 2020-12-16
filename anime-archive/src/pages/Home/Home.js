@@ -18,8 +18,8 @@ import { fetchHomepage } from "../../graphql/index.js";
 export default function Home() {
   const [apiData, setapiData] = useState(null);
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .post("https://graphql.anilist.co", { query: fetchHomepage })
       .then(function (response) {
         setapiData(response);
