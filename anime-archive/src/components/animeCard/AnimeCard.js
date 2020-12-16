@@ -1,3 +1,4 @@
+// Styling
 import "./AnimeCard.css";
 
 const AnimeCard = (props) => {

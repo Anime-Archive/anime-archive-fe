@@ -1,3 +1,4 @@
+// Styling
 import "./CarouselCard.css";
 
 const CarouselCard = (props) => {

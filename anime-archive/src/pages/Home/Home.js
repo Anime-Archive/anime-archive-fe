@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-import Logo from "../../components/logo/Logo";
+import axios from "axios";
+import { useState, useEffect } from "react";
+// Components
 import Carousel from "../../components/carousel/Carousel.js";
 import Section from "../../components/section/Section.js";
-import SearchImg from "../../assets/icons/searchIcon.png";
-import "./Home.css";
-import axios from "axios";
-import { sectionData } from "../../utils/sectionData.js";
-import { useState, useEffect } from "react";
+import Logo from "../../components/logo/Logo";
 import { Loader } from "../../components/loader/Loader.js";
+// Styling
+import "./Home.css";
+// Images and icons
+import SearchImg from "../../assets/icons/searchIcon.png";
+// Data related
+import { sectionData } from "../../utils/sectionData.js";
+// Graphql
 import { fetchHomepage } from "../../graphql/index.js";
 
 export default function Home() {
@@ -38,8 +43,10 @@ export default function Home() {
             </Link>
           </header>
 
+          {/* Carousel component to the homepage */}
           <Carousel apiData={apiData.data.data.carousel.media} />
-          {/* Our sections will be created with sectiondata structure and will spit out cards with query used to pull data from api */}
+
+          {/* Our sections will be created with sectionData structure and will spit out cards with the apiData */}
           {sectionData.map((section) => (
             <Section key={section.id} data={section} apiData={apiData} />
           ))}

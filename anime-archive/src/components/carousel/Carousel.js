@@ -1,7 +1,10 @@
+// Components
 import FilterCard from "../filterCard/FilterCard";
 import CarouselCard from "../carouselCard/CarouselCard";
-import { filterData, carouselData } from "../../utils/carouselData";
+// Styling
 import "./Carousel.css";
+// Data related
+import { filterData } from "../../utils/carouselData";
 
 const Carousel = (props) => {
   // Places black indicator on current filter in carousel
@@ -37,6 +40,7 @@ const Carousel = (props) => {
           </div>
         </div>
 
+        {/* Maps through filters */}
         {filters.map((filter) => (
           <FilterCard
             key={filter.id}
