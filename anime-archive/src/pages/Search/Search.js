@@ -21,7 +21,6 @@ export default function Search() {
     event.preventDefault();
     console.log(searchText);
   }
-
   return (
     <div>
       <header>
@@ -50,9 +49,9 @@ export default function Search() {
       </div>
 
       {/* Api search results turned into anime cards here */}
-      {animeData.map((result) => (
+      {/* {animeData.map((result) => (
         <AnimeCard key={result.id} data={result} />
-      ))}
+      ))} */}
 
       <div className="load">
         <button>Load More</button>
