@@ -20,7 +20,15 @@
 .cardDetails {
   display: flex;
   flex-direction: column;
+  max-width: 60%;
   height: 150px;
+}
+
+.cardDetails h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 150px;
+  overflow: hidden;
 }
 
 .animeCardTitle {
