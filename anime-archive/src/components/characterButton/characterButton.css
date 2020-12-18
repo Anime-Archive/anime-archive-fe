@@ -1,6 +1,5 @@
 .characterButtonCard {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 2% 0;
   padding: 1.5%;
@@ -8,10 +7,16 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.characterButtonCard img {
+.cardCharacters {
+  display: flex;
+  overflow: hidden;
+}
+
+.cardCharacters img {
   width: 70px;
   height: 117px;
   border-radius: 15px;
+  margin: 0 1%;
 }
 
 .cardButton {
