@@ -7,6 +7,7 @@ export const fetchHomepage = `{
         }
         title {
           english
+          native
         }
         averageScore
       }
