@@ -6,8 +6,8 @@ export const fetchHomepage = `{
           large
         }
         title {
+          userPreferred
           english
-          native
         }
         averageScore
       }
@@ -19,7 +19,7 @@ export const fetchHomepage = `{
           large
         }
         title {
-          native
+          userPreferred
           english
         }
         startDate {
@@ -37,7 +37,7 @@ export const fetchHomepage = `{
           large
         }
         title {
-          native
+          userPreferred
           english
         }
         startDate {

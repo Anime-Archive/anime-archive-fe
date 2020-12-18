@@ -9,7 +9,7 @@ const characterCard = (props) => {
 
       <div className="cardNames">
         <h3>{props.data.name.full}</h3>
-        <h3>{props.data.name.native}</h3>
+        <h3>{props.data.name.userPreferred}</h3>
       </div>
     </div>
   );

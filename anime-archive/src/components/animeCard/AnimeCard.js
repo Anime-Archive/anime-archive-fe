@@ -29,8 +29,8 @@ const AnimeCard = (props) => {
       </div>
       <div className="cardDetails">
         <h3 className="animeCardTitle">
-          {/* if there is no english title, display native */}
-          {!data.title.english ? data.title.native : data.title.english}
+          {/* if there is no english title, display userPreferred */}
+          {!data.title.english ? data.title.userPreferred : data.title.english}
         </h3>
         <div>
           <h4>Start Date</h4>

@@ -25,7 +25,7 @@ const CarouselCard = (props) => {
       </div>
 
       <h3 className="carouselCardTitle">
-        {!data.title.english ? data.title.native : data.title.english}
+        {!data.title.english ? data.title.userPreferred : data.title.english}
       </h3>
 
       <label>

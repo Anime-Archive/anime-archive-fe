@@ -19,7 +19,6 @@ export default function Search() {
   // User search text via query to api returns data result
   function searchSubmit(event) {
     event.preventDefault();
-    console.log(searchText);
   }
   return (
     <div>

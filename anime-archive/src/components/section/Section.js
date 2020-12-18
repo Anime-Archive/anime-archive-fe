@@ -4,7 +4,6 @@ import "./Section.css";
 const Section = (props) => {
   const sections = props.apiData.data.data;
 
-  // console.log(data[props.data.extension], "props in section");
   return (
     <section>
       <div className="sectionHeader">

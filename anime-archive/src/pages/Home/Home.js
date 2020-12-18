@@ -25,7 +25,7 @@ export default function Home() {
         setapiData(response);
       })
       .catch(function (error) {
-        console.log(`Error ${error} in fetching homepage, ${error.statusText}`);
+        console.log(error);
       });
   }, []);
 
