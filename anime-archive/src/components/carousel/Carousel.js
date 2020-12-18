@@ -1,9 +1,12 @@
+// Components
 import FilterCard from "../filterCard/FilterCard";
 import CarouselCard from "../carouselCard/CarouselCard";
-import { filterData, carouselData } from "../../utils/carouselData";
+// Styling
 import "./Carousel.css";
+// Data related
+import { filterData } from "../../utils/carouselData";
 
-const Carousel = () => {
+const Carousel = (props) => {
   // Places black indicator on current filter in carousel
   const currentFilter = (filterId) => {
     const oldFilter = document.querySelector(`.activeDot`);
@@ -37,6 +40,7 @@ const Carousel = () => {
           </div>
         </div>
 
+        {/* Maps through filters */}
         {filters.map((filter) => (
           <FilterCard
             key={filter.id}
@@ -48,7 +52,7 @@ const Carousel = () => {
 
       {/* Query for carousel data based on filter selected above to dynamically populate carousel container below */}
       <div className="cardContainer">
-        {carouselData.map((card) => (
+        {props.apiData.map((card) => (
           <CarouselCard key={card.id} data={card} />
         ))}
       </div>
