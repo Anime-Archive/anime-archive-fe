@@ -38,8 +38,10 @@ export default function Closerlook() {
           <h4>Genre</h4>
           <p>{data.genres.join(", ")}</p>
 
+          <br />
+
           {/* Character giant button */}
-          <CharacterButton />
+          <CharacterButton data={data.characters.nodes} />
 
           <br />
 

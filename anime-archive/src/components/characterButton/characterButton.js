@@ -1,9 +1,18 @@
 import "./characterButton.css";
 
-const characterButton = () => {
+const characterButton = (props) => {
   return (
-    <div>
-      <p>testing characterButton</p>
+    <div className="characterButtonCard">
+      {props.data.map((character) => (
+        <img
+          key={character.id}
+          src={character.image.large}
+          alt="anime character"
+        />
+      ))}
+      <div className="cardButton">
+        <h4>View All</h4>
+      </div>
     </div>
   );
 };
