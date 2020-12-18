@@ -1,18 +1,22 @@
 export const filterData = [
   {
     id: 1,
-    name: "Trending",
+    name: "Popular",
+    querySort: "POPULAR_DESC",
   },
   {
     id: 2,
-    name: "Upcoming",
+    name: "Trending",
+    querySort: "TRENDING_DESC",
   },
   {
     id: 3,
-    name: "Popular",
+    name: "Score",
+    querySort: "SCORE_DESC",
   },
   {
     id: 4,
     name: "Favorites",
+    querySort: "FAVORITES_DESC",
   },
 ];
