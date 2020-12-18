@@ -42,7 +42,7 @@ const AnimeCard = (props) => {
           </p>
           <br />
           <h4>Status</h4>
-          <p>{data.status}</p>
+          <p>{!data.status ? "Unknown" : data.status}</p>
         </div>
       </div>
     </div>

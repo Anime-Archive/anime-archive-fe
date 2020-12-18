@@ -24,10 +24,12 @@ const CarouselCard = (props) => {
         <img src={data.coverImage.large} alt="anime cover" />
       </div>
 
-      <h3 className="carouselCardTitle">{data.title.english}</h3>
+      <h3 className="carouselCardTitle">
+        {!data.title.english ? data.title.native : data.title.english}
+      </h3>
 
       <label>
-        <p>{`${rating}% Recommend`}</p>
+        <p>{!rating ? "No Results" : `${rating}% Recommend`}</p>
 
         {/* Parent div below is the container for the progress bar background in gray */}
         <div className="recommendBar ">
