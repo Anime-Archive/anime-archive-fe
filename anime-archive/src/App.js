@@ -4,6 +4,7 @@ import About from "./pages/About/About.js";
 import Closerlook from "./pages/Closerlook/Closerlook.js";
 import { Footer } from "./components/footer/Footer.js";
 import Search from "./pages/Search/Search.js";
+import Characters from "./pages/Characters/Characters";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
       </Route>
       <Route path="/closerlook">
         <Closerlook />
+      </Route>
+      <Route path="/characters">
+        <Characters />
       </Route>
     </div>
   );

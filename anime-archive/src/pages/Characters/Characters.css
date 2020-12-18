@@ -1,0 +1,26 @@
+.charactersBg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.charactersBg img {
+  filter: brightness(50%);
+}
+
+.charactersHeroText {
+  position: absolute;
+  color: #ffffff;
+  top: 30px;
+}
+
+.charactersFloat {
+  width: 100%;
+  background: #ffffff;
+  z-index: 1;
+  position: absolute;
+  top: 90px;
+  padding: 3%;
+  border-radius: 35px;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
