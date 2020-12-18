@@ -5,15 +5,13 @@ const characterButton = (props) => {
   // Inside each object have an id and an image
   return (
     <div className="characterButtonCard">
-      <div className="cardCharacters">
-        {props.data.map((character) => (
-          <img
-            key={character.id}
-            src={character.image.large}
-            alt="anime character"
-          />
-        ))}
-      </div>
+      {props.data.map((character) => (
+        <img
+          key={character.id}
+          src={character.image.large}
+          alt="anime character"
+        />
+      ))}
       <div className="cardButton">
         <h4>View All</h4>
       </div>
