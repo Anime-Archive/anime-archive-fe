@@ -15,6 +15,7 @@
 }
 
 .charactersFloat {
+  width: 100%;
   background: #ffffff;
   z-index: 1;
   position: absolute;
