@@ -42,7 +42,7 @@ export default function Closerlook() {
           <br />
 
           {/* Character giant button */}
-          <Link to="/characters">
+          <Link to="/characters" className="links">
             <CharacterButton data={data.characters.nodes} />
           </Link>
 
