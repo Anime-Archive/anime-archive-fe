@@ -54,7 +54,7 @@ const Carousel = (props) => {
 
       {/* Query for carousel data based on filter selected above to dynamically populate carousel container below */}
       <div className="cardContainer">
-        {props.apiData.map((card) => (
+        {props.carouselCardData.map((card) => (
           <CarouselCard key={card.id} data={card} />
         ))}
       </div>

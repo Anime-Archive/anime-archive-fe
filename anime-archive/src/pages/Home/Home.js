@@ -13,20 +13,34 @@ import SearchImg from "../../assets/icons/searchIcon.png";
 // Data related
 import { sectionData } from "../../utils/sectionData.js";
 // Graphql
-import { fetchHomepage } from "../../graphql/index.js";
+import { fetchHomepage, fetchCarousel } from "../../graphql/index.js";
 
 export default function Home() {
-  const [apiData, setapiData] = useState(null);
+  const [carouselCardData, setCarouselCardData] = useState(null);
+  const [sectionCardData, setSectionCardData] = useState(null);
 
   // Track filter change and hold new query sort name
   const [queryFilter, setQueryFilter] = useState("POPULARITY_DESC");
-  console.log(queryFilter);
+
+  useEffect(() => {
+    axios
+      .post("https://graphql.anilist.co", {
+        query: fetchCarousel,
+        variables: { filterName: queryFilter },
+      })
+      .then(function (response) {
+        setCarouselCardData(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [queryFilter]);
 
   useEffect(() => {
     axios
       .post("https://graphql.anilist.co", { query: fetchHomepage })
       .then(function (response) {
-        setapiData(response);
+        setSectionCardData(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -35,7 +49,7 @@ export default function Home() {
 
   return (
     <>
-      {!apiData ? (
+      {!carouselCardData || !sectionCardData ? (
         <Loader />
       ) : (
         <div>
@@ -49,13 +63,17 @@ export default function Home() {
 
           {/* Carousel component to the homepage */}
           <Carousel
-            apiData={apiData.data.data.carousel.media}
+            carouselCardData={carouselCardData.data.data.Page.media}
             setQueryFilter={setQueryFilter}
           />
 
           {/* Our sections will be created with sectionData structure and will spit out cards with the apiData */}
           {sectionData.map((section) => (
-            <Section key={section.id} data={section} apiData={apiData} />
+            <Section
+              key={section.id}
+              data={section}
+              sectionCardData={sectionCardData}
+            />
           ))}
         </div>
       )}
