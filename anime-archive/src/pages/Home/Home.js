@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from "react";
 // Components
 import Carousel from "../../components/carousel/Carousel.js";
 import Section from "../../components/section/Section.js";
@@ -17,6 +17,10 @@ import { fetchHomepage } from "../../graphql/index.js";
 
 export default function Home() {
   const [apiData, setapiData] = useState(null);
+
+  // Track filter change and hold new query sort name
+  const [queryFilter, setQueryFilter] = useState("POPULARITY_DESC");
+  console.log(queryFilter);
 
   useEffect(() => {
     axios
@@ -44,7 +48,10 @@ export default function Home() {
           </header>
 
           {/* Carousel component to the homepage */}
-          <Carousel apiData={apiData.data.data.carousel.media} />
+          <Carousel
+            apiData={apiData.data.data.carousel.media}
+            setQueryFilter={setQueryFilter}
+          />
 
           {/* Our sections will be created with sectionData structure and will spit out cards with the apiData */}
           {sectionData.map((section) => (

@@ -1,4 +1,3 @@
-import { useState } from "react";
 // Components
 import FilterCard from "../filterCard/FilterCard";
 import CarouselCard from "../carouselCard/CarouselCard";
@@ -26,10 +25,6 @@ const Carousel = (props) => {
   // Removes the default filter so we wont display it twice
   const filters = filterData.slice(1);
 
-  // Track filter change and hold new query sort name
-  const [queryFilter, setQueryFilter] = useState(defaultFilter.querySort);
-  console.log(queryFilter);
-
   return (
     <section>
       <div className="filters">
@@ -38,7 +33,7 @@ const Carousel = (props) => {
             className={`filterContent filter-${defaultFilter.id}`}
             onClick={() => (
               currentFilter(defaultFilter.id),
-              setQueryFilter(defaultFilter.querySort)
+              props.setQueryFilter(defaultFilter.querySort)
             )}
           >
             <p>{defaultFilter.name}</p>
@@ -52,7 +47,7 @@ const Carousel = (props) => {
             key={filter.id}
             data={filter}
             currentFilter={currentFilter}
-            setQueryFilter={setQueryFilter}
+            setQueryFilter={props.setQueryFilter}
           />
         ))}
       </div>
