@@ -53,20 +53,20 @@ export const closerlookData = [
               "https://s4.anilist.co/file/anilistcdn/character/large/b2-0Iszg6Izgt4p.png",
           },
         },
-        // {
-        //   id: 23687,
-        //   image: {
-        //     large:
-        //       "https://s4.anilist.co/file/anilistcdn/character/large/b23687-uzV1PzEyejhW.png",
-        //   },
-        // },
-        // {
-        //   id: 2734,
-        //   image: {
-        //     large:
-        //       "https://s4.anilist.co/file/anilistcdn/character/large/b2734-aglO8RKNVxnn.jpg",
-        //   },
-        // },
+        {
+          id: 23687,
+          image: {
+            large:
+              "https://s4.anilist.co/file/anilistcdn/character/large/b23687-uzV1PzEyejhW.png",
+          },
+        },
+        {
+          id: 2734,
+          image: {
+            large:
+              "https://s4.anilist.co/file/anilistcdn/character/large/b2734-aglO8RKNVxnn.jpg",
+          },
+        },
       ],
     },
   },
