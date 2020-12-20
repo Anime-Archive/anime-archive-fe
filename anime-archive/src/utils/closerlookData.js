@@ -33,6 +33,7 @@ export const closerlookData = [
     characters: {
       nodes: [
         {
+          id: 11,
           name: {
             alternative: [
               "Straw Hat",
@@ -58,6 +59,7 @@ export const closerlookData = [
           },
         },
         {
+          id: 909,
           name: {
             alternative: [
               "Black Leg",

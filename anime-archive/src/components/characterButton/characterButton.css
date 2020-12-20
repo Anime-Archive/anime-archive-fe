@@ -1,32 +1,31 @@
 .characterCarouselCard {
-  border: solid 1px green;
-  padding: 1.5%;
+  display: flex;
   margin: 2%;
   border-radius: 15px;
-  min-width: 250px;
-  max-width: 470px;
-  height: 135px;
+  min-width: 300px;
+  height: 100px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.characterCarouselCard img {
-  border: solid 1px red;
-  width: 85px;
-  height: 85px;
-  border-radius: 50px;
+.characterCarouselImage {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
-.cardContainer {
-  border: solid 1px red;
-  display: flex;
-  overflow-x: scroll;
-  margin: 10px 0px 15px 0;
-  /* Removes desktop horizontal scrollbar for ... */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.characterNames {
+  margin-left: 1%;
 }
 
-/* Removes horizontal scrollbar for Chrome and Safari */
-.cardContainer::-webkit-scrollbar {
-  display: none;
+.characterNames h4 {
+  max-width: 200px;
+}
+
+.characterNames p {
+  max-width: 200px;
+  max-height: 80px;
+  text-overflow: ellipsis;
+  overflow: auto;
 }
