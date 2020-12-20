@@ -3,12 +3,11 @@ import "./characterButton.css";
 const characterButton = (props) => {
   // For characterButton to work properly pass in an array with 3 objects
   // Inside each object have an id and an image
-  console.log(props.data);
   return (
     <div className="cardContainer">
       {props.data.map((character) => (
         <div className="characterCarouselCard" key={character.id}>
-          <div className="characterCarouselImage">
+          <div className="characterCarouselImageContainer">
             <img src={character.image.large} alt="anime character" />
           </div>
           <div className="characterNames">
@@ -20,7 +19,8 @@ const characterButton = (props) => {
                 ? character.name.last
                 : character.name.first}
             </h4>
-            <p>Aliases: {character.name.alternative.join(", ")}</p>
+            <h4>Aliases:</h4>
+            <p>{character.name.alternative.join(", ")}</p>
           </div>
         </div>
       ))}

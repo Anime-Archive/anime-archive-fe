@@ -55,7 +55,7 @@ export const closerlookData = [
           },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b40-NKxeBrrS2vp4.png",
+              "https://s4.anilist.co/file/anilistcdn/character/medium/b40-NKxeBrrS2vp4.png",
           },
         },
         {
@@ -74,7 +74,7 @@ export const closerlookData = [
           },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b305-OCK4jCGefFKU.png",
+              "https://s4.anilist.co/file/anilistcdn/character/medium/b305-OCK4jCGefFKU.png",
           },
         },
         {
