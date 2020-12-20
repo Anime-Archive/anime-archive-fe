@@ -2,7 +2,7 @@ export const filterData = [
   {
     id: 1,
     name: "Popular",
-    querySort: "POPULAR_DESC",
+    querySort: "POPULARITY_DESC",
   },
   {
     id: 2,
@@ -17,6 +17,6 @@ export const filterData = [
   {
     id: 4,
     name: "Favorites",
-    querySort: "FAVORITES_DESC",
+    querySort: "FAVOURITES_DESC",
   },
 ];
