@@ -1,5 +1,5 @@
 export const fetchHomepage = `{
-    carousel: Page($page: Int, perPage: 5) {
+    carousel: Page(page: 1, perPage: 5) {
       media(type: ANIME, sort: TRENDING_DESC) {
         id
         coverImage {

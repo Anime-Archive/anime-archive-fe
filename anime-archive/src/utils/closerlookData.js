@@ -33,38 +33,104 @@ export const closerlookData = [
     characters: {
       nodes: [
         {
-          id: 1,
+          name: {
+            alternative: [
+              "Straw Hat",
+              "Straw",
+              "Straw-boy",
+              "Mugiwara",
+              "Mugi",
+              "Lucy",
+              "Luffyland",
+              "Luffy-taro",
+              "Mugiwara-ya",
+              "Macaco-Luffy",
+              "El wey del sombrero",
+              "Chapéu de Palha",
+              "Mugiwara-boy",
+            ],
+            last: "Monkey D.",
+            first: "Luffy",
+          },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b1-ChxaldmieFlQ.png",
+              "https://s4.anilist.co/file/anilistcdn/character/large/b40-NKxeBrrS2vp4.png",
           },
         },
         {
-          id: 4,
+          name: {
+            alternative: [
+              "Black Leg",
+              "Mr. Prince",
+              "Love Cook",
+              "Ero Cook",
+              "Curly Eyebrows",
+              "O-Soba Mask",
+            ],
+            last: "",
+            first: "Sanji",
+          },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/4.jpg",
+              "https://s4.anilist.co/file/anilistcdn/character/large/b305-OCK4jCGefFKU.png",
           },
         },
         {
-          id: 2,
+          id: 64,
+          name: {
+            alternative: ["Cyborg", "Cutty Flam", "Bakanky", "Iron Man"],
+            last: "",
+            first: "Franky",
+          },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b2-0Iszg6Izgt4p.png",
+              "https://s4.anilist.co/file/anilistcdn/character/large/n64-ChX6ZzHHjXqA.png",
           },
         },
         {
-          id: 23687,
+          id: 18938,
+          name: {
+            alternative: [
+              "Kaikyou no Jinbe",
+              "Knight of the Sea",
+              "First Son of the Sea",
+            ],
+            last: null,
+            first: "Jinbe",
+          },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b23687-uzV1PzEyejhW.png",
+              "https://s4.anilist.co/file/anilistcdn/character/large/b18938-1g2ITNBh5gmu.png",
           },
         },
         {
-          id: 2734,
+          id: 5627,
+          name: {
+            alternative: ["Dead Bones", "Soul King", "Satan-sama"],
+            last: "Brook",
+            first: "",
+          },
           image: {
             large:
-              "https://s4.anilist.co/file/anilistcdn/character/large/b2734-aglO8RKNVxnn.jpg",
+              "https://s4.anilist.co/file/anilistcdn/character/large/n5627-550SkaJLmcIi.png",
+          },
+        },
+        {
+          id: 724,
+          name: {
+            alternative: [
+              "Sogeking",
+              "Long-Nose",
+              "Hanapp",
+              "Hana Arashi",
+              "God Usopp",
+            ],
+            last: null,
+            first: "Usopp",
+          },
+          image: {
+            large:
+              "https://s4.anilist.co/file/anilistcdn/character/large/n724-J2faX9jdufNK.jpg",
           },
         },
       ],
