@@ -13,75 +13,56 @@ import SearchImg from "../../assets/icons/searchIcon.png";
 // Data related
 import { sectionData } from "../../utils/sectionData.js";
 // Graphql
-import { fetchSection, fetchCarousel } from "../../graphql/index.js";
+import { fetchSection } from "../../graphql/index.js";
 
 export default function Home() {
-  // Holds data for carousel cards and will change based on filter selected in carousel
-  const [carouselCardData, setCarouselCardData] = useState(null);
-
   // Holds data for section cards
   const [sectionCardData, setSectionCardData] = useState(null);
 
-  // Tracks filter change and holds newly selected query sorting name
-  const [queryFilter, setQueryFilter] = useState("POPULARITY_DESC");
-
-  // Dynamic filter call to api triggered on everytime a new is selected
-  useEffect(() => {
-    axios
-      .post("https://graphql.anilist.co", {
-        query: fetchCarousel,
-        variables: { filterName: queryFilter },
-      })
-      .then(function (response) {
-        setCarouselCardData(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [queryFilter]);
+  const [sectionLoading, setSectionLoading] = useState(false);
 
   // Initial data for all section cards pulled in a single call to api
   useEffect(() => {
+    setSectionLoading(true);
     axios
       .post("https://graphql.anilist.co", { query: fetchSection })
       .then(function (response) {
         setSectionCardData(response);
+        setSectionLoading(false);
       })
       .catch(function (error) {
         console.log(error);
+        setSectionLoading(false);
       });
   }, []);
 
   return (
     <>
-      {!carouselCardData || !sectionCardData ? (
-        <Loader />
-      ) : (
-        <div>
-          <header>
-            <Logo />
-            {/* Wrap link/onClick to send to searchpage below */}
-            <Link to="/search">
-              <img src={SearchImg} alt="search icon" />
-            </Link>
-          </header>
+      <div>
+        <header>
+          <Logo />
+          {/* Wrap link/onClick to send to searchpage below */}
+          <Link to="/search">
+            <img src={SearchImg} alt="search icon" />
+          </Link>
+        </header>
 
-          {/* Carousel component to the homepage */}
-          <Carousel
-            carouselCardData={carouselCardData.data.data.Page.media}
-            setQueryFilter={setQueryFilter}
-          />
+        {/* Carousel component to the homepage */}
+        <Carousel />
 
-          {/* Our sections will be created with sectionData structure and will spit out cards with the apiData */}
-          {sectionData.map((section) => (
+        {/* Our sections will be created with sectionData structure and will spit out cards with the apiData */}
+        {!sectionCardData ? (
+          <Loader />
+        ) : (
+          sectionData.map((section) => (
             <Section
               key={section.id}
               data={section}
               sectionCardData={sectionCardData}
             />
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </>
   );
 }

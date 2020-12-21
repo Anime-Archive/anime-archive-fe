@@ -1,10 +1,15 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 // Components
 import FilterCard from "../filterCard/FilterCard";
 import CarouselCard from "../carouselCard/CarouselCard";
+import { Loader } from "../../components/loader/Loader.js";
 // Styling
 import "./Carousel.css";
 // Data related
 import { filterData } from "../../utils/carouselData";
+// Graphql
+import { fetchCarousel } from "../../graphql/index.js";
 
 const Carousel = (props) => {
   // Places black indicator on current filter in carousel
@@ -19,11 +24,41 @@ const Carousel = (props) => {
     newFilter.appendChild(dot);
   };
 
+  // Holds data for carousel cards and will change based on filter selected in carousel
+  const [carouselCardData, setCarouselCardData] = useState(null);
+
+  // Loader
+  const [carouselLoading, setCarouselLoading] = useState(false);
+
   // Grabs first filter in data structure and make it the default filter
   const defaultFilter = filterData[0];
 
   // Removes the default filter so we wont display it twice
   const filters = filterData.slice(1);
+
+  // Tracks filter change and holds newly selected query sorting name
+  const [queryFilter, setQueryFilter] = useState("POPULARITY_DESC");
+
+  // Dynamic filter call to api triggered on everytime a new is selected
+  useEffect(() => {
+    setCarouselLoading(true);
+    axios
+      .post("https://graphql.anilist.co", {
+        query: fetchCarousel,
+        variables: { filterName: queryFilter },
+      })
+      .then(function (response) {
+        setCarouselCardData(response);
+
+        setTimeout(() => {
+          setCarouselLoading(false);
+        }, 1000);
+      })
+      .catch(function (error) {
+        console.log(error);
+        setCarouselLoading(false);
+      });
+  }, [queryFilter]);
 
   return (
     <section>
@@ -33,7 +68,7 @@ const Carousel = (props) => {
             className={`filterContent filter-${defaultFilter.id}`}
             onClick={() => (
               currentFilter(defaultFilter.id),
-              props.setQueryFilter(defaultFilter.querySort)
+              setQueryFilter(defaultFilter.querySort)
             )}
           >
             <p>{defaultFilter.name}</p>
@@ -47,16 +82,20 @@ const Carousel = (props) => {
             key={filter.id}
             data={filter}
             currentFilter={currentFilter}
-            setQueryFilter={props.setQueryFilter}
+            setQueryFilter={setQueryFilter}
           />
         ))}
       </div>
 
       {/* Query for carousel data based on filter selected above to dynamically populate carousel container below */}
       <div className="cardContainer">
-        {props.carouselCardData.map((card) => (
-          <CarouselCard key={card.id} data={card} />
-        ))}
+        {!carouselCardData || carouselLoading ? (
+          <Loader />
+        ) : (
+          carouselCardData.data.data.Page.media.map((card) => (
+            <CarouselCard key={card.id} data={card} />
+          ))
+        )}
       </div>
     </section>
   );
