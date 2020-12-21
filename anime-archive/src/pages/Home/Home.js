@@ -16,12 +16,16 @@ import { sectionData } from "../../utils/sectionData.js";
 import { fetchSection, fetchCarousel } from "../../graphql/index.js";
 
 export default function Home() {
+  // Holds data for carousel cards and will change based on filter selected in carousel
   const [carouselCardData, setCarouselCardData] = useState(null);
+
+  // Holds data for section cards
   const [sectionCardData, setSectionCardData] = useState(null);
 
-  // Track filter change and hold new query sort name
+  // Tracks filter change and holds newly selected query sorting name
   const [queryFilter, setQueryFilter] = useState("POPULARITY_DESC");
 
+  // Dynamic filter call to api triggered on everytime a new is selected
   useEffect(() => {
     axios
       .post("https://graphql.anilist.co", {
@@ -36,6 +40,7 @@ export default function Home() {
       });
   }, [queryFilter]);
 
+  // Initial data for all section cards pulled in a single call to api
   useEffect(() => {
     axios
       .post("https://graphql.anilist.co", { query: fetchSection })
