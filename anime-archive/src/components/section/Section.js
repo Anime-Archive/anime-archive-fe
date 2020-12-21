@@ -1,4 +1,6 @@
+//Components
 import AnimeCard from "../../components/animeCard/AnimeCard.js";
+//Styling
 import "./Section.css";
 
 const Section = (props) => {
