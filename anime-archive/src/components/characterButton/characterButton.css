@@ -1,0 +1,40 @@
+.characterCarouselCard {
+  align-items: center;
+  display: flex;
+  border-radius: 15px;
+  width: 300px;
+  margin: 2%;
+  height: 100px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.characterCardPadding {
+  padding-right: 5%;
+}
+
+.characterCarouselImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.characterNames {
+  margin-left: 2.5%;
+}
+
+.characterNames h4 {
+  margin-top: 2%;
+  max-width: 200px;
+}
+
+.characterNames p {
+  padding-top: 2%;
+  max-width: 200px;
+  max-height: 55px;
+  text-overflow: ellipsis;
+  overflow: auto;
+}
