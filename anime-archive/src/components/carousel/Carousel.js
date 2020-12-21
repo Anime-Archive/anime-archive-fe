@@ -31,9 +31,10 @@ const Carousel = (props) => {
         <div key={defaultFilter.id} className="filterCard">
           <div
             className={`filterContent filter-${defaultFilter.id}`}
-            onClick={() => {
-              currentFilter(defaultFilter.id);
-            }}
+            onClick={() => (
+              currentFilter(defaultFilter.id),
+              props.setQueryFilter(defaultFilter.querySort)
+            )}
           >
             <p>{defaultFilter.name}</p>
             <div className="activeDot"></div>
@@ -46,13 +47,14 @@ const Carousel = (props) => {
             key={filter.id}
             data={filter}
             currentFilter={currentFilter}
+            setQueryFilter={props.setQueryFilter}
           />
         ))}
       </div>
 
       {/* Query for carousel data based on filter selected above to dynamically populate carousel container below */}
       <div className="cardContainer">
-        {props.apiData.map((card) => (
+        {props.carouselCardData.map((card) => (
           <CarouselCard key={card.id} data={card} />
         ))}
       </div>
