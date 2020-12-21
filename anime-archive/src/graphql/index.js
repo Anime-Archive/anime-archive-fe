@@ -1,4 +1,4 @@
-import { fetchHomepage } from "./fetchHomepage.js";
+import { fetchSection } from "./fetchSection.js";
 import { fetchCarousel } from "./fetchCarousel.js";
 
-export { fetchHomepage, fetchCarousel };
+export { fetchSection, fetchCarousel };

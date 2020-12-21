@@ -1,4 +1,4 @@
-export const fetchHomepage = `{
+export const fetchSection = `{
     upcoming: Page(page: 1, perPage: 5) {
       media(type: ANIME, sort: POPULARITY_DESC, status: NOT_YET_RELEASED) {
         id

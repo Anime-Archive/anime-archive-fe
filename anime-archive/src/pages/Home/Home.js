@@ -13,7 +13,7 @@ import SearchImg from "../../assets/icons/searchIcon.png";
 // Data related
 import { sectionData } from "../../utils/sectionData.js";
 // Graphql
-import { fetchHomepage, fetchCarousel } from "../../graphql/index.js";
+import { fetchSection, fetchCarousel } from "../../graphql/index.js";
 
 export default function Home() {
   const [carouselCardData, setCarouselCardData] = useState(null);
@@ -38,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .post("https://graphql.anilist.co", { query: fetchHomepage })
+      .post("https://graphql.anilist.co", { query: fetchSection })
       .then(function (response) {
         setSectionCardData(response);
       })
