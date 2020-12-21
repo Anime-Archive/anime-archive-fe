@@ -49,10 +49,7 @@ const Carousel = (props) => {
       })
       .then(function (response) {
         setCarouselCardData(response);
-
-        setTimeout(() => {
-          setCarouselLoading(false);
-        }, 1000);
+        setCarouselLoading(false);
       })
       .catch(function (error) {
         console.log(error);

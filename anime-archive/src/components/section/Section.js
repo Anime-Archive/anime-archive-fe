@@ -22,10 +22,7 @@ const Section = (props) => {
       .post("https://graphql.anilist.co", { query: fetchSection })
       .then(function (response) {
         setSectionCardData(response);
-
-        setTimeout(() => {
-          setSectionLoading(false);
-        }, 1000);
+        setSectionLoading(false);
       })
       .catch(function (error) {
         console.log(error);
