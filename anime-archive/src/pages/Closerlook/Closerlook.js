@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { closerlookData } from "../../utils/closerlookData";
 import BackToTop from "../../components/backToTop/BackToTop.js";
-import CharacterButton from "../../components/characterButton/characterButton.js";
+// import CharacterButton from "../../components/characterButton/characterButton.js";
 import { Footer } from "../../components/footer/Footer.js";
 import "./Closerlook.css";
 
@@ -43,7 +43,7 @@ export default function Closerlook() {
 
           {/* Character giant button */}
           <Link to="/characters" className="links">
-            <CharacterButton data={data.characters.nodes} />
+            {/* <CharacterButton data={data.characters.nodes} /> */}
           </Link>
 
           <br />
