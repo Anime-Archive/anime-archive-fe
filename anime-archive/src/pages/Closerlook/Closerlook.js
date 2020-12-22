@@ -1,20 +1,27 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { fetchAnimeInfo } from "../../graphql/index.js";
 import { useEffect, useState } from "react";
+// Components
 import { Loader } from "../../components/loader/Loader.js";
 import BackToTop from "../../components/backToTop/BackToTop.js";
 import CharacterButton from "../../components/characterButton/characterButton.js";
 import { Footer } from "../../components/footer/Footer.js";
 import Banner from "../../components/banner/Banner.js";
+// Styling
 import "./Closerlook.css";
+// Graphql
+import { fetchAnimeInfo } from "../../graphql/index.js";
 
 export default function Closerlook() {
+  // Holds anime data once API fetch is successful
   const [animeData, setAnimeData] = useState(null);
+
+  // Initiates loader instance
   const [closerlookLoading, setCloserlookLoading] = useState(false);
 
   let { id } = useParams();
 
+  // API call to fetch a particular animes info
   useEffect(() => {
     setCloserlookLoading(true);
     axios
@@ -40,6 +47,7 @@ export default function Closerlook() {
           {/* Title and Banner */}
           <Banner
             title={
+              // Checks whether or not a title is availible to display on screen, until it hits a default title
               !animeData.title.english
                 ? !animeData.title.userPreferred
                   ? "No name found in Database 😭"
@@ -64,12 +72,15 @@ export default function Closerlook() {
                 <p>{!animeData.status ? "Unknown" : animeData.status}</p>
                 <h4>Studios</h4>
                 <p>
-                  {animeData.studios.nodes &&
-                  animeData.studios.nodes.length >= 1
-                    ? !animeData.studios.nodes[0].name
-                      ? "Unknown"
-                      : animeData.studios.nodes[0].name
-                    : "Unknown"}
+                  {
+                    // Checks whether anime has studios before accessing key
+                    animeData.studios.nodes &&
+                    animeData.studios.nodes.length >= 1
+                      ? !animeData.studios.nodes[0].name
+                        ? "Unknown"
+                        : animeData.studios.nodes[0].name
+                      : "Unknown"
+                  }
                 </p>
               </div>
             </div>
@@ -77,9 +88,12 @@ export default function Closerlook() {
             <div className="closerlookDetails">
               <h4>Genre</h4>
               <p>
-                {animeData.genres && animeData.genres.length >= 1
-                  ? animeData.genres.join(", ")
-                  : "Unknown"}
+                {
+                  // Checks whether genre has true in order to display
+                  animeData.genres && animeData.genres.length >= 1
+                    ? animeData.genres.join(", ")
+                    : "Unknown"
+                }
               </p>
 
               <br />
