@@ -1,0 +1,15 @@
+.bannerBg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerBg img {
+  filter: brightness(50%);
+}
+
+.bannerText {
+  position: absolute;
+  color: #ffffff;
+  top: 30px;
+}
