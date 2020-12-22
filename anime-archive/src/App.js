@@ -23,7 +23,7 @@ function App() {
       <Route path="/search">
         <Search />
       </Route>
-      <Route path="/closerlook">
+      <Route exact path="/closerlook">
         <Closerlook />
       </Route>
       <Route path="/closerlook/:id/characters">

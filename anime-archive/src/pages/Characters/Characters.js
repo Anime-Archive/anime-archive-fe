@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { characterData } from "../../utils/charactersData.js";
 // Components
 import CharacterCard from "../../components/characterCard/characterCard.js";
 import BackToTop from "../../components/backToTop/BackToTop.js";
@@ -14,8 +13,6 @@ import "./Characters.css";
 import { fetchCharacters } from "../../graphql/index.js";
 
 export default function Characters() {
-  const data = characterData[0];
-
   // Holds data for character cards
   const [charactersData, setCharactersData] = useState(null);
 
