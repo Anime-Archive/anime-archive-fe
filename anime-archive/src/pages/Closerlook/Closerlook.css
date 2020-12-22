@@ -1,19 +1,3 @@
-.closerlookBg {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.closerlookBg img {
-  filter: brightness(50%);
-}
-
-.closerlookHeroText {
-  position: absolute;
-  color: #ffffff;
-  top: 30px;
-}
-
 .closerlookFloat {
   background: #ffffff;
   z-index: 1;

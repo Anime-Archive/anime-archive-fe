@@ -3,6 +3,7 @@ import { closerlookData } from "../../utils/closerlookData";
 import BackToTop from "../../components/backToTop/BackToTop.js";
 import CharacterButton from "../../components/characterButton/characterButton.js";
 import { Footer } from "../../components/footer/Footer.js";
+import Banner from "../../components/banner/Banner.js";
 import "./Closerlook.css";
 
 export default function Closerlook() {
@@ -10,12 +11,7 @@ export default function Closerlook() {
   return (
     <div>
       {/* Title and Banner */}
-      <div className="closerlookBg">
-        <img src={data.bannerImage} alt="anime banner" />
-        <div className="closerlookHeroText">
-          <h3>{data.title.english}</h3>
-        </div>
-      </div>
+      <Banner title={data.title.english} bannerImage={data.bannerImage} />
 
       <BackToTop />
 
