@@ -7,7 +7,7 @@ query ($id: Int!) {
         userPreferred
         english
       }
-      characters {
+      characters(sort: ROLE) {
         nodes {
           id
           image {
@@ -16,8 +16,7 @@ query ($id: Int!) {
           name {
             first
             last
-            full
-            native
+            alternative
           }
         }
       }

@@ -8,8 +8,20 @@ const characterCard = (props) => {
       </div>
 
       <div className="cardNames">
-        <h3>{props.data.name.full}</h3>
-        <h3>{props.data.name.userPreferred}</h3>
+        {/* Checks if character has both first and last name, if not display the one that does exist */}
+        <h3>
+          {props.data.name.last && props.data.name.first
+            ? `${props.data.name.last} ${props.data.name.first}`
+            : props.data.name.last
+            ? props.data.name.last
+            : props.data.name.first}
+        </h3>
+        <h4>Aliases:</h4>
+        <p>
+          {props.data.name.alternative[0] === ""
+            ? "Character has no alias"
+            : props.data.name.alternative.join(", ")}
+        </p>
       </div>
     </div>
   );
