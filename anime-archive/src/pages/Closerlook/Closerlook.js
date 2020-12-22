@@ -41,7 +41,7 @@ export default function Closerlook() {
 
           <div className="closerlookCharacterSection">
             <h4>Characters</h4>
-            <Link to="/characters" className="links">
+            <Link to="/closerlook/21/characters" className="links">
               <p>view more</p>
             </Link>
           </div>
