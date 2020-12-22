@@ -8,6 +8,10 @@
 .cardImage {
   margin: 2%;
   padding: 2%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cardImage img {
@@ -20,5 +24,10 @@
 .cardNames {
   display: flex;
   flex-direction: column;
-  width: 175px;
+  width: 60%;
+}
+
+.cardNames p {
+  overflow: auto;
+  max-height: 100px;
 }
