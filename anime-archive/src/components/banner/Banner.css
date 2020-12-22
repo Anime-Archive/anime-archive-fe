@@ -12,4 +12,13 @@
   position: absolute;
   color: #ffffff;
   top: 30px;
+  padding: 0 2%;
+}
+
+.bannerText h3 {
+  text-align: center;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
