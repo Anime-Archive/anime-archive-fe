@@ -39,7 +39,13 @@ export default function Closerlook() {
         <div key={animeData.id}>
           {/* Title and Banner */}
           <Banner
-            title={animeData.title.english}
+            title={
+              !animeData.title.english
+                ? !animeData.title.userPreferred
+                  ? "No name found in Database 😭"
+                  : animeData.title.userPreferred
+                : animeData.title.english
+            }
             bannerImage={animeData.bannerImage}
           />
 
@@ -92,7 +98,11 @@ export default function Closerlook() {
               <br />
 
               <h4>Description</h4>
-              <p>{animeData.description}</p>
+              <p>
+                {!animeData.description
+                  ? "Unfortunatley, there is no description for this anime as of yet -- stay tuned! 😃"
+                  : animeData.description}
+              </p>
 
               <br />
 
