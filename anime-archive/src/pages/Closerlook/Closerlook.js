@@ -51,19 +51,30 @@ export default function Closerlook() {
               <img src={animeData.coverImage.large} alt="anime cover" />
               <div className="closerlookStats">
                 <h4>Format</h4>
-                <p>{animeData.format}</p>
+                <p>{!animeData.format ? "Unknown" : animeData.format}</p>
                 <h4>Episodes</h4>
-                <p>{animeData.episodes}</p>
+                <p>{!animeData.episodes ? "TBA" : animeData.episodes}</p>
                 <h4>Status</h4>
-                <p>{animeData.status}</p>
+                <p>{!animeData.status ? "Unknown" : animeData.status}</p>
                 <h4>Studios</h4>
-                <p>{animeData.studios.nodes[0].name}</p>
+                <p>
+                  {animeData.studios.nodes &&
+                  animeData.studios.nodes.length >= 1
+                    ? !animeData.studios.nodes[0].name
+                      ? "Unknown"
+                      : animeData.studios.nodes[0].name
+                    : "Unknown"}
+                </p>
               </div>
             </div>
 
             <div className="closerlookDetails">
               <h4>Genre</h4>
-              <p>{animeData.genres.join(", ")}</p>
+              <p>
+                {animeData.genres && animeData.genres.length >= 1
+                  ? animeData.genres.join(", ")
+                  : "Unknown"}
+              </p>
 
               <br />
 
