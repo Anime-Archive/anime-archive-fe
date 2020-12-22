@@ -9,6 +9,10 @@ query ($id: Int!) {
       }
       characters {
         nodes {
+          id
+          image {
+            large
+          }
           name {
             first
             last

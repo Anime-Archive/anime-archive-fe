@@ -34,7 +34,6 @@ export default function Characters() {
         variables: { id: id },
       })
       .then(function (response) {
-        console.log(response);
         setCharactersData(response);
         setCharactersLoading(false);
       })
