@@ -1,7 +1,7 @@
 export const fetchAnimeInfo = `query ($id: Int!){
-    Page(page: 1, perPage: 1) {
-      media(id: $id) {
+      Media(id: $id) {
         id
+        status
         title {
           english
           userPreferred
@@ -38,5 +38,4 @@ export const fetchAnimeInfo = `query ($id: Int!){
           }
         }
       }
-    }
   }`;
