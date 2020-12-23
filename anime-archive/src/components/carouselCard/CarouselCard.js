@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // Styling
 import "./CarouselCard.css";
 
@@ -19,29 +20,31 @@ const CarouselCard = (props) => {
   }
 
   return (
-    <div className="carouselCard">
-      <div className="carouselImage">
-        <img src={data.coverImage.large} alt="anime cover" />
-      </div>
-
-      <h3 className="carouselCardTitle">
-        {!data.title.english ? data.title.userPreferred : data.title.english}
-      </h3>
-
-      <label>
-        <p>{!rating ? "No Results" : `${rating}% Recommend`}</p>
-
-        {/* Parent div below is the container for the progress bar background in gray */}
-        <div className="recommendBar ">
-          {/* Inner self closing div is the dynamic bar that fills the progress bar */}
-
-          <div
-            className={`recommendFill ${grade}`}
-            style={{ width: `${rating}%` }}
-          />
+    <Link className="links" to={`closerlook/${props.data.id}`}>
+      <div className="carouselCard">
+        <div className="carouselImage">
+          <img src={data.coverImage.large} alt="anime cover" />
         </div>
-      </label>
-    </div>
+
+        <h3 className="carouselCardTitle">
+          {!data.title.english ? data.title.userPreferred : data.title.english}
+        </h3>
+
+        <label>
+          <p>{!rating ? "No Results" : `${rating}% Recommend`}</p>
+
+          {/* Parent div below is the container for the progress bar background in gray */}
+          <div className="recommendBar ">
+            {/* Inner self closing div is the dynamic bar that fills the progress bar */}
+
+            <div
+              className={`recommendFill ${grade}`}
+              style={{ width: `${rating}%` }}
+            />
+          </div>
+        </label>
+      </div>
+    </Link>
   );
 };
 
