@@ -23,10 +23,10 @@ function App() {
       <Route path="/search">
         <Search />
       </Route>
-      <Route path="/closerlook/:id">
+      <Route exact path="/closerlook/:id">
         <Closerlook />
       </Route>
-      <Route path="/characters">
+      <Route path="/closerlook/:id/characters">
         <Characters />
       </Route>
     </div>
