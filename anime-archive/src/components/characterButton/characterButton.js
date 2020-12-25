@@ -14,11 +14,11 @@ const characterButton = (props) => {
             <div className="characterNames">
               {/* Checks if character has both first and last name, if not display the one that does exist */}
               <h4>
-                {character.name.last && character.name.first
-                  ? `${character.name.last} ${character.name.first}`
-                  : character.name.last
-                  ? character.name.last
-                  : character.name.first}
+                {character.name.first && character.name.last
+                  ? `${character.name.first} ${character.name.last}`
+                  : character.name.first
+                  ? character.name.first
+                  : character.name.last}
               </h4>
               <h4>Aliases:</h4>
               <p>
