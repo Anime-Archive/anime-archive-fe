@@ -135,8 +135,8 @@ export default function Closerlook() {
                 )}
               </div>
             </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       )}
     </>

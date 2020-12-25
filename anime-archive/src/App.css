@@ -14,12 +14,6 @@ html {
   font-size: 62.5%;
 }
 
-/* All content execept footer */
-.primaryContent {
-  border-radius: 0 0 35px 35px;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
-}
-
 /* Logo */
 h1 {
   font-family: Amaranth;

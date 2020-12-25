@@ -63,9 +63,8 @@ export default function Characters() {
             <CharacterCard key={character.id} data={character} />
           ))
         )}
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 }

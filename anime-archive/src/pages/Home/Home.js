@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Carousel from "../../components/carousel/Carousel.js";
 import Section from "../../components/section/Section.js";
 import Logo from "../../components/logo/Logo";
+import { Footer } from "../../components/footer/Footer.js";
 // Styling
 import "./Home.css";
 // Images and icons
@@ -30,6 +31,7 @@ export default function Home() {
           <Section key={section.id} data={section} />
         ))}
       </div>
+      <Footer />
     </>
   );
 }
