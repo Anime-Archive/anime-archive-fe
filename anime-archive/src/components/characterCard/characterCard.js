@@ -10,11 +10,11 @@ const characterCard = (props) => {
       <div className="cardNames">
         {/* Checks if character has both first and last name, if not display the one that does exist */}
         <h3>
-          {props.data.name.last && props.data.name.first
-            ? `${props.data.name.last} ${props.data.name.first}`
-            : props.data.name.last
-            ? props.data.name.last
-            : props.data.name.first}
+          {props.data.name.first && props.data.name.last
+            ? `${props.data.name.first} ${props.data.name.last}`
+            : props.data.name.first
+            ? props.data.name.first
+            : props.data.name.last}
         </h3>
         <h4>Aliases:</h4>
         <p>
