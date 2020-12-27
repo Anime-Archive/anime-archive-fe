@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Logo from "../../components/logo/Logo.js";
-import AnimeCard from "../../components/animeCard/AnimeCard.js";
 import BackToTop from "../../components/backToTop/BackToTop.js";
-import { animeData } from "../../utils/animeData.js";
 import SearchIcon from "../../assets/icons/searchIcon.png";
 import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
@@ -10,18 +8,16 @@ import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
 
 export default function Search() {
-  // Remove this testing state and drop in query object down into Filters component
-  const [queryStringObj, setQueryStringObj] = useState({
-    searchTerm: null,
-    genre: null,
-    sort: null,
-  });
-  console.log("testing", queryStringObj);
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
 
   // User search input
   const [searchText, setSearchText] = useState("");
+
+  const queryStringObj = {
+    searchTerm: null,
+    genre: null,
+  };
 
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
@@ -31,6 +27,8 @@ export default function Search() {
   // User search text via query to api returns data result
   function searchSubmit(event) {
     event.preventDefault();
+    queryStringObj.searchTerm = searchText.replace(/ /g, "+");
+    const qs = buildQueryString(queryStringObj);
   }
   return (
     <div>
