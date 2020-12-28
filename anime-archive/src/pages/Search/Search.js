@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../../components/logo/Logo.js";
 import BackToTop from "../../components/backToTop/BackToTop.js";
 import SearchIcon from "../../assets/icons/searchIcon.png";
@@ -27,9 +27,17 @@ export default function Search() {
   // User search text via query to api returns data result
   function searchSubmit(event) {
     event.preventDefault();
-    queryStringObj.searchTerm = searchText.replace(/ /g, "+");
+    queryStringObj.searchTerm = searchText;
     const qs = buildQueryString(queryStringObj);
+    window.history.pushState(
+      {
+        variables: queryStringObj,
+      },
+      "Search",
+      `${qs}`
+    );
   }
+
   return (
     <div>
       <header>
