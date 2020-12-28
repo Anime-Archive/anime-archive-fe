@@ -14,10 +14,10 @@ export default function Search() {
   // User search input
   const [searchText, setSearchText] = useState("");
 
-  const queryStringObj = {
+  const [queryStringObj, setQueryStringObj] = useState({
     searchTerm: null,
     genre: null,
-  };
+  });
 
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
