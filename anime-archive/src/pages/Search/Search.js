@@ -6,6 +6,7 @@ import { animeData } from "../../utils/animeData.js";
 import SearchIcon from "../../assets/icons/searchIcon.png";
 import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
+import Filter from "../../components/filter/Filter.js";
 
 export default function Search() {
   // User search input
@@ -46,6 +47,8 @@ export default function Search() {
           <img src={FilterIcon} alt="filter" />
         </div>
       </div>
+
+      <Filter />
 
       {/* Api search results turned into anime cards here */}
       {/* {animeData.map((result) => (
