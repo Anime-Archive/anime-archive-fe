@@ -9,6 +9,13 @@ import "./Search.css";
 import Filter from "../../components/filter/Filter.js";
 
 export default function Search() {
+  const [queryStringObj, setQueryStringObj] = useState({
+    searchTerm: null,
+    genre: null,
+    sort: null,
+  });
+  console.log(queryStringObj);
+
   // User search input
   const [searchText, setSearchText] = useState("");
 
@@ -48,7 +55,10 @@ export default function Search() {
         </div>
       </div>
 
-      <Filter />
+      <Filter
+        queryStringObj={queryStringObj}
+        setQueryStringObj={setQueryStringObj}
+      />
 
       {/* Api search results turned into anime cards here */}
       {/* {animeData.map((result) => (
