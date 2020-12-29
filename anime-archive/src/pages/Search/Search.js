@@ -16,10 +16,12 @@ export default function Search() {
   // User search input
   const [searchText, setSearchText] = useState("");
 
+  const url = new URL(window.location.href);
+
   // queryStringObj holds filter and search state
   const [queryStringObj, setQueryStringObj] = useState({
-    searchTerm: null,
-    genre: null,
+    searchTerm: url.searchParams.get("searchTerm"),
+    genre: url.searchParams.get("genre"),
   });
 
   // Grabs user text from input field and stores in searchText above
@@ -50,6 +52,7 @@ export default function Search() {
       })
       .catch(function (err) {
         console.log(err);
+        setTrigger(false);
       });
   }, [trigger]);
 
