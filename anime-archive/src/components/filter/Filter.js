@@ -1,13 +1,8 @@
+import FilterDropdown from "../../components/filterDropdown/FilterDropdown.js";
+import { filterData } from "../../utils/index.js";
 import "./Filter.css";
 
 const Filter = (props) => {
-  function filterHandler(event) {
-    props.setQueryStringObj({
-      ...props.queryStringObj,
-      [event.target.name]: event.target.value,
-    });
-  }
-
   return (
     <div className="filterComponent">
       <div className="filterHeader">
@@ -15,14 +10,15 @@ const Filter = (props) => {
         <p>clear all</p>
       </div>
 
-      <form>
-        <h4>Sort</h4>
-        <select name="sort" onChange={(event) => filterHandler(event)}>
-          <option value={null}>None</option>
-          <option value="TRENDING_DESC">Trending</option>
-          <option value="POPULARITY_DESC">Popular</option>
-          <option value="FAVOURITES_DESC">Favorites</option>
-        </select>
+      <form className="dropdownFilters">
+        {filterData.map((dropdown) => (
+          <FilterDropdown
+            key={dropdown.id}
+            data={dropdown}
+            queryStringObj={props.queryStringObj}
+            setQueryStringObj={props.setQueryStringObj}
+          />
+        ))}
       </form>
     </div>
   );
