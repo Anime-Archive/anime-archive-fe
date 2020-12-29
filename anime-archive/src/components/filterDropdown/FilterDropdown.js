@@ -8,17 +8,22 @@ const FilterDropdown = (props) => {
     });
   }
   return (
-    <div className="dropdownCard">
-      <h4>{props.data.title}</h4>
-      <select name={props.data.name} onChange={(event) => filterHandler(event)}>
-        <option value={null}>None</option>
+    <div className="dropdownSpacer">
+      <div className="dropdownCard">
+        <h4>{props.data.title}</h4>
+        <select
+          name={props.data.name}
+          onChange={(event) => filterHandler(event)}
+        >
+          <option value={null}>None</option>
 
-        {props.data.options.map((option) => (
-          <option key={option.id} value={option.value}>
-            {option.title}
-          </option>
-        ))}
-      </select>
+          {props.data.options.map((option) => (
+            <option key={option.id} value={option.value}>
+              {option.title}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };
