@@ -1,10 +1,12 @@
 import FilterDropdown from "../../components/filterDropdown/FilterDropdown.js";
 import { filterData } from "../../utils/index.js";
+import Line from "../../components/line/Line.js";
 import "./Filter.css";
 
 const Filter = (props) => {
   return (
     <div className="filterComponent">
+      <Line />
       <div className="filterHeader">
         <h2>Filters</h2>
         <p>clear all</p>
@@ -20,6 +22,7 @@ const Filter = (props) => {
           />
         ))}
       </form>
+      <Line />
     </div>
   );
 };

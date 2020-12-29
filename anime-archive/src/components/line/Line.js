@@ -2,9 +2,9 @@ import "./Line.css";
 
 const Line = () => {
   return (
-    <div>
-      <p>hello from Line component</p>
-    </div>
+    <>
+      <div className="line" />
+    </>
   );
 };
 
