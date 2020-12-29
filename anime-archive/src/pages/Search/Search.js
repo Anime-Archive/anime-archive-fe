@@ -6,6 +6,8 @@ import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
 import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
+import { fetchUserSearch } from "../../graphql";
+import axios from "axios";
 
 export default function Search() {
   // Reveal filters
@@ -14,6 +16,7 @@ export default function Search() {
   // User search input
   const [searchText, setSearchText] = useState("");
 
+  // queryStringObj holds filter and search state
   const [queryStringObj, setQueryStringObj] = useState({
     searchTerm: null,
     genre: null,
@@ -24,19 +27,31 @@ export default function Search() {
     setSearchText(event.target.value);
   }
 
-  // User search text via query to api returns data result
+  // Triggers API call on true
+  const [trigger, setTrigger] = useState(false);
+
   function searchSubmit(event) {
     event.preventDefault();
     queryStringObj.searchTerm = searchText;
     const qs = buildQueryString(queryStringObj);
-    window.history.pushState(
-      {
-        variables: queryStringObj,
-      },
-      "Search",
-      `${qs}`
-    );
+    window.history.pushState({}, "Search", `/search/${qs}`);
+    setTrigger(true);
   }
+
+  useEffect(() => {
+    axios
+      .post("https://graphql.anilist.co", {
+        query: fetchUserSearch,
+        variables: queryStringObj,
+      })
+      .then(function (res) {
+        console.log(res);
+        setTrigger(false);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, [trigger]);
 
   return (
     <div>
