@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // Styling
 import "./AnimeCard.css";
 
-const AnimeCard = (props) => {
+export const AnimeCard = (props) => {
   const data = props.data;
   const month = {
     1: "Jan",

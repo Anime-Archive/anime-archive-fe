@@ -8,10 +8,14 @@ import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
 import { fetchUserSearch } from "../../graphql";
 import axios from "axios";
+import { Loader } from "../../components/loader/Loader.js";
+import { AnimeCard } from "../../components/animeCard/AnimeCard.js";
 
 export default function Search() {
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
+
+  const [animeData, setAnimeData] = useState(null);
 
   // User search input
   const [searchText, setSearchText] = useState("");
@@ -47,7 +51,7 @@ export default function Search() {
         variables: queryStringObj,
       })
       .then(function (res) {
-        console.log(res);
+        setAnimeData(res.data.data.Page);
         setTrigger(false);
       })
       .catch(function (err) {
@@ -99,9 +103,11 @@ export default function Search() {
       ) : null}
 
       {/* Api search results turned into anime cards here */}
-      {/* {animeData.map((result) => (
-        <AnimeCard key={result.id} data={result} />
-      ))} */}
+      {!animeData || trigger ? (
+        <Loader />
+      ) : (
+        animeData.media.map((item) => <AnimeCard key={item.id} data={item} />)
+      )}
 
       <div className="load">
         <button>Load More</button>
