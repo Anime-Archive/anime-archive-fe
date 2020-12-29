@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react";
-import Logo from "../../components/logo/Logo.js";
-import BackToTop from "../../components/backToTop/BackToTop.js";
+import axios from "axios";
+//helper functions
+import { buildQueryString } from "../../utils/index.js";
+// Styling
+import "./Search.css";
+//icons
 import SearchIcon from "../../assets/icons/searchIcon.png";
 import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
 import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
+// Graphql
 import { fetchUserSearch } from "../../graphql";
-import axios from "axios";
+// Components
 import { Loader } from "../../components/loader/Loader.js";
 import { AnimeCard } from "../../components/animeCard/AnimeCard.js";
+import Logo from "../../components/logo/Logo.js";
+import BackToTop from "../../components/backToTop/BackToTop.js";
 
 export default function Search() {
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
 
+  // API results
   const [animeData, setAnimeData] = useState(null);
 
   // User search input
@@ -22,8 +30,8 @@ export default function Search() {
 
   const url = new URL(window.location.href);
 
-  // queryStringObj holds filter and search state
-  const [queryStringObj, setQueryStringObj] = useState({
+  // Holds users filter and search state
+  const [filterAndSearchState, setFilterAndSearchState] = useState({
     searchTerm: url.searchParams.get("searchTerm"),
     genre: url.searchParams.get("genre"),
   });
@@ -38,17 +46,18 @@ export default function Search() {
 
   function searchSubmit(event) {
     event.preventDefault();
-    queryStringObj.searchTerm = searchText;
-    const qs = buildQueryString(queryStringObj);
+    filterAndSearchState.searchTerm = searchText;
+    const qs = buildQueryString(filterAndSearchState);
     window.history.pushState({}, "Search", `/search${qs}`);
     setTrigger(true);
   }
 
+  // API call
   useEffect(() => {
     axios
       .post("https://graphql.anilist.co", {
         query: fetchUserSearch,
-        variables: queryStringObj,
+        variables: filterAndSearchState,
       })
       .then(function (res) {
         setAnimeData(res.data.data.Page);
