@@ -40,7 +40,7 @@ export default function Search() {
     event.preventDefault();
     queryStringObj.searchTerm = searchText;
     const qs = buildQueryString(queryStringObj);
-    window.history.pushState({}, "Search", `/search/${qs}`);
+    window.history.pushState({}, "Search", `/search${qs}`);
     setTrigger(true);
   }
 
