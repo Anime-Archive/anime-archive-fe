@@ -46,7 +46,7 @@ export default function Search() {
 
   function searchSubmit(event) {
     event.preventDefault();
-    filterAndSearchState.searchTerm = searchText;
+    filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
     const qs = buildQueryString(filterAndSearchState);
     window.history.pushState({}, "Search", `/search${qs}`);
     setTrigger(true);
