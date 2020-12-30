@@ -10,6 +10,7 @@ import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
 
 export default function Search() {
+  // Remove this testing state and drop in query object down into Filters component
   const [queryStringObj, setQueryStringObj] = useState({
     searchTerm: null,
     genre: null,
@@ -54,6 +55,7 @@ export default function Search() {
             />
           </form>
 
+          {/* Displays filter icon as default and when active an exit "x" is shown */}
           <div onClick={() => setShowFilters(!showFilters)}>
             {showFilters ? (
               <img src={ExitIcon} alt="exit" />
@@ -64,6 +66,7 @@ export default function Search() {
         </div>
       </div>
 
+      {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
       {showFilters ? (
         <Filter
           queryStringObj={queryStringObj}
