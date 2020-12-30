@@ -3,7 +3,6 @@ import "./Banner.css";
 
 const Banner = (props) => {
   // Pass in an image and title for banner component
-  console.log(props.bannerImage);
   return (
     <div className="bannerBg">
       <div>
