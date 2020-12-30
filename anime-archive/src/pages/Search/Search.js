@@ -110,8 +110,8 @@ export default function Search() {
       {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
       {showFilters ? (
         <Filter
-          queryStringObj={queryStringObj}
-          setQueryStringObj={setQueryStringObj}
+          filterAndSearchState={filterAndSearchState}
+          setFilterAndSearchState={setFilterAndSearchState}
         />
       ) : null}
 

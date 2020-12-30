@@ -7,8 +7,8 @@ const Filter = (props) => {
   // Resets query object holding values and dropdown filters to display None
   function clearFilter() {
     // Drop all filter values except searchTerm
-    props.setQueryStringObj({
-      searchTerm: props.queryStringObj.searchTerm,
+    props.setFilterAndSearchState({
+      searchTerm: props.filterAndSearchState.searchTerm,
       genre: null,
       sort: null,
     });
@@ -37,8 +37,8 @@ const Filter = (props) => {
           <FilterDropdown
             key={dropdown.id}
             data={dropdown}
-            queryStringObj={props.queryStringObj}
-            setQueryStringObj={props.setQueryStringObj}
+            filterAndSearchState={props.filterAndSearchState}
+            setFilterAndSearchState={props.setFilterAndSearchState}
           />
         ))}
       </form>
