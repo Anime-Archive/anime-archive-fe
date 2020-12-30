@@ -4,12 +4,26 @@ import Line from "../../components/line/Line.js";
 import "./Filter.css";
 
 const Filter = (props) => {
+  function clearFilter() {
+    props.setQueryStringObj({
+      searchTerm: props.queryStringObj.searchTerm,
+      genre: null,
+      sort: null,
+    });
+
+    const allFilters = document.querySelectorAll("select");
+
+    for (let dropdown of allFilters) {
+      dropdown.selectedIndex = 0;
+    }
+  }
+
   return (
     <div className="filterComponent">
       <Line />
       <div className="filterHeader">
         <h2>Filters</h2>
-        <p>clear all</p>
+        <p onClick={() => clearFilter()}>clear all</p>
       </div>
 
       <form className="dropdownFilters">
