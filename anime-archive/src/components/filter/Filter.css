@@ -1,0 +1,25 @@
+.filterComponent {
+  padding: 2% 0;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.dropdownFilters {
+  display: flex;
+  overflow-x: scroll;
+  margin: 2% 0 2% 0;
+  padding: 2% 0;
+  /* Removes desktop horizontal scrollbar for ... */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Removes horizontal scrollbar for Chrome and Safari */
+.dropdownFilters::-webkit-scrollbar {
+  display: none;
+}

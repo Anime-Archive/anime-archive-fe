@@ -6,8 +6,20 @@ import { animeData } from "../../utils/animeData.js";
 import SearchIcon from "../../assets/icons/searchIcon.png";
 import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
+import Filter from "../../components/filter/Filter.js";
+import ExitIcon from "../../assets/icons/exitIcon.png";
 
 export default function Search() {
+  // Remove this testing state and drop in query object down into Filters component
+  const [queryStringObj, setQueryStringObj] = useState({
+    searchTerm: null,
+    genre: null,
+    sort: null,
+  });
+  console.log("testing", queryStringObj);
+  // Reveal filters
+  const [showFilters, setShowFilters] = useState(false);
+
   // User search input
   const [searchText, setSearchText] = useState("");
 
@@ -43,9 +55,24 @@ export default function Search() {
             />
           </form>
 
-          <img src={FilterIcon} alt="filter" />
+          {/* Displays filter icon as default and when active an exit "x" is shown */}
+          <div onClick={() => setShowFilters(!showFilters)}>
+            {showFilters ? (
+              <img src={ExitIcon} alt="exit" />
+            ) : (
+              <img src={FilterIcon} alt="filters" />
+            )}
+          </div>
         </div>
       </div>
+
+      {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
+      {showFilters ? (
+        <Filter
+          queryStringObj={queryStringObj}
+          setQueryStringObj={setQueryStringObj}
+        />
+      ) : null}
 
       {/* Api search results turned into anime cards here */}
       {/* {animeData.map((result) => (

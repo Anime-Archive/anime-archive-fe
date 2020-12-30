@@ -1,0 +1,33 @@
+.dropdownSpacer {
+  padding-right: 1%;
+}
+
+.dropdownCard {
+  margin: 0 2% 0 5%;
+}
+
+.dropdownCard h4 {
+  padding-bottom: 8%;
+}
+
+.dropdownCard select {
+  /* Removes Browser default styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Resets default styles for select tag */
+  border: none;
+  outline: none;
+  background: none;
+  appearance: none;
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 10%;
+  width: 175px;
+  height: 25px;
+  font-size: 1.6rem;
+}
+
+/* Removes arrow from lower IE versions */
+.dropdownCard select::-ms-expand {
+  display: none;
+}
