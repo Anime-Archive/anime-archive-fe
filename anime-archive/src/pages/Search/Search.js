@@ -34,6 +34,10 @@ export default function Search() {
   const [filterAndSearchState, setFilterAndSearchState] = useState({
     searchTerm: url.searchParams.get("searchTerm"),
     genre: url.searchParams.get("genre"),
+    sort: url.searchParams.get("sort"),
+    status: url.searchParams.get("status")
+      ? url.searchParams.get("status")
+      : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
   });
 
   // Grabs user text from input field and stores in searchText above
