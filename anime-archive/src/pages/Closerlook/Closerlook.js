@@ -41,14 +41,14 @@ export default function Closerlook() {
 
   return (
     <>
+      <div className="closerlookHeader">
+        <Logo />
+      </div>
+
       {!animeData || closerlookLoading ? (
         <Loader />
       ) : (
         <div key={animeData.id}>
-          <div className="closerlookHeader">
-            <Logo />
-          </div>
-
           {/* Title and Banner */}
           <Banner
             title={
