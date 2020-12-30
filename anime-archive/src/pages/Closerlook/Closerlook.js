@@ -7,6 +7,7 @@ import BackToTop from "../../components/backToTop/BackToTop.js";
 import CharacterButton from "../../components/characterButton/characterButton.js";
 import { Footer } from "../../components/footer/Footer.js";
 import Banner from "../../components/banner/Banner.js";
+import Logo from "../../components/logo/Logo.js";
 // Styling
 import "./Closerlook.css";
 // Graphql
@@ -44,6 +45,10 @@ export default function Closerlook() {
         <Loader />
       ) : (
         <div key={animeData.id}>
+          <div className="closerlookHeader">
+            <Logo />
+          </div>
+
           {/* Title and Banner */}
           <Banner
             title={
@@ -60,7 +65,7 @@ export default function Closerlook() {
           <BackToTop />
 
           {/* Top floating data card */}
-          <div className="closerlookFloat">
+          <div className="closerlookCard">
             <div className="closerlookCover">
               <img src={animeData.coverImage.large} alt="anime cover" />
               <div className="closerlookStats">
