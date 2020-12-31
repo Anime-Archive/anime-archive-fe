@@ -8,9 +8,16 @@ const Filter = (props) => {
   function clearFilter() {
     // Drop all filter values except searchTerm
     props.setFilterAndSearchState({
-      searchTerm: props.filterAndSearchState.searchTerm,
+      searchTerm: props.url.searchParams.get("searchTerm"),
       genre: null,
       sort: null,
+      status: [
+        "RELEASING",
+        "FINISHED",
+        "NOT_YET_RELEASED",
+        "CANCELLED",
+        "HIATUS",
+      ],
     });
 
     // Grab and set all dropdowns to a variable in an array
@@ -20,6 +27,8 @@ const Filter = (props) => {
     for (let dropdown of allFilters) {
       dropdown.selectedIndex = 0;
     }
+
+    props.setTrigger(true);
   }
 
   return (
@@ -35,6 +44,7 @@ const Filter = (props) => {
       <form className="dropdownFilters">
         {filterData.map((dropdown) => (
           <FilterDropdown
+            setTrigger={props.setTrigger}
             key={dropdown.id}
             data={dropdown}
             filterAndSearchState={props.filterAndSearchState}

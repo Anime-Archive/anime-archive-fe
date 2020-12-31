@@ -1,6 +1,7 @@
 import "./FilterDropdown.css";
 
 const FilterDropdown = (props) => {
+  console.log(props);
   // Updates the query object with new value based on filters changed
   function filterHandler(event) {
     // User changes are recorded and saved as key/value format
@@ -8,6 +9,7 @@ const FilterDropdown = (props) => {
       ...props.filterAndSearchState,
       [event.target.name]: event.target.value,
     });
+    props.setTrigger(true);
   }
 
   return (

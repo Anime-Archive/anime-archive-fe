@@ -40,6 +40,7 @@ export default function Search() {
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
   });
 
+  console.log(filterAndSearchState);
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
     setSearchText(event.target.value);
@@ -58,6 +59,7 @@ export default function Search() {
 
   // API call
   useEffect(() => {
+    console.log(filterAndSearchState);
     axios
       .post("https://graphql.anilist.co", {
         query: fetchUserSearch,
@@ -110,6 +112,8 @@ export default function Search() {
       {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
       {showFilters ? (
         <Filter
+          setTrigger={setTrigger}
+          url={url}
           filterAndSearchState={filterAndSearchState}
           setFilterAndSearchState={setFilterAndSearchState}
         />
