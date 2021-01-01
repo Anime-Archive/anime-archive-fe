@@ -1,3 +1,4 @@
+import DefaultBanner from "../../assets/img/defaultBanner.png";
 import "./Banner.css";
 
 const Banner = (props) => {
@@ -5,7 +6,11 @@ const Banner = (props) => {
   return (
     <div className="bannerBg">
       <div>
-        <img src={props.bannerImage} alt="anime banner" />
+        {props.bannerImage ? (
+          <img src={props.bannerImage} alt="anime banner" />
+        ) : (
+          <img src={DefaultBanner} alt="default anime banner" />
+        )}
       </div>
       <div className="bannerText">
         <h3>{props.title}</h3>

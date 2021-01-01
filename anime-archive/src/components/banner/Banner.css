@@ -2,6 +2,9 @@
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  max-height: 300px;
 }
 
 .bannerBg img {
@@ -11,7 +14,7 @@
 .bannerText {
   position: absolute;
   color: #ffffff;
-  top: 30px;
+  top: 43%;
   padding: 0 2%;
 }
 

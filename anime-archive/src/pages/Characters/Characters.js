@@ -7,6 +7,7 @@ import BackToTop from "../../components/backToTop/BackToTop.js";
 import { Footer } from "../../components/footer/Footer.js";
 import Banner from "../../components/banner/Banner.js";
 import { Loader } from "../../components/loader/Loader.js";
+import Logo from "../../components/logo/Logo.js";
 // Styling
 import "./Characters.css";
 // Graphql
@@ -41,7 +42,11 @@ export default function Characters() {
   }, []);
 
   return (
-    <div>
+    <>
+      <div className="charactersHeader">
+        <Logo />
+      </div>
+
       {/* Title and Banner */}
       {!charactersData || charactersLoading ? (
         <Loader />
@@ -55,7 +60,7 @@ export default function Characters() {
       <BackToTop />
 
       {/* Top floating data card */}
-      <div className="charactersFloat">
+      <div className="characters">
         {!charactersData || charactersLoading ? (
           <Loader />
         ) : (
@@ -65,6 +70,6 @@ export default function Characters() {
         )}
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
