@@ -40,7 +40,6 @@ export default function Search() {
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
   });
 
-  console.log(filterAndSearchState);
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
     setSearchText(event.target.value);
@@ -52,14 +51,13 @@ export default function Search() {
   function searchSubmit(event) {
     event.preventDefault();
     filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
-    const qs = buildQueryString(filterAndSearchState);
-    window.history.pushState({}, "Search", `/search${qs}`);
     setTrigger(true);
   }
 
   // API call
   useEffect(() => {
-    console.log(filterAndSearchState);
+    const qs = buildQueryString(filterAndSearchState);
+    window.history.pushState({}, "Search", `/search${qs}`);
     axios
       .post("https://graphql.anilist.co", {
         query: fetchUserSearch,

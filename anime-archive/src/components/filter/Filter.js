@@ -27,7 +27,6 @@ const Filter = (props) => {
     for (let dropdown of allFilters) {
       dropdown.selectedIndex = 0;
     }
-
     props.setTrigger(true);
   }
 
