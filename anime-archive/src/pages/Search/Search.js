@@ -25,10 +25,12 @@ export default function Search() {
   // API results
   const [animeData, setAnimeData] = useState(null);
 
-  // User search input
-  const [searchText, setSearchText] = useState("");
-
   const url = new URL(window.location.href);
+
+  // User search input
+  const [searchText, setSearchText] = useState(
+    url.searchParams.get("searchTerm") ? url.searchParams.get("searchTerm") : ""
+  );
 
   // Holds users filter and search state
   const [filterAndSearchState, setFilterAndSearchState] = useState({
