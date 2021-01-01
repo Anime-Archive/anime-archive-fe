@@ -2,6 +2,9 @@
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  max-height: 300px;
 }
 
 .bannerBg img {
