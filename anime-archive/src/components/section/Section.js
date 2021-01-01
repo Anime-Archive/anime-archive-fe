@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // Components
 import AnimeCard from "../../components/animeCard/AnimeCard.js";
 import { Loader } from "../../components/loader/Loader.js";
@@ -35,7 +36,9 @@ const Section = (props) => {
       <div className="sectionHeader">
         <h2>{props.data.sectionNames}</h2>
         {/* Wrap view more with dynamic link to push to searchpage based on section user wants to view more in link */}
-        <p>view more</p>
+        <Link className="links" to={`search${props.data.queryString}`}>
+          <p>view more</p>
+        </Link>
       </div>
 
       {/* With query we can pull 4 cards and cycle through dynamically */}

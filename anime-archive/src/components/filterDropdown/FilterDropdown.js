@@ -4,8 +4,8 @@ const FilterDropdown = (props) => {
   // Updates the query object with new value based on filters changed
   function filterHandler(event) {
     // User changes are recorded and saved as key/value format
-    props.setQueryStringObj({
-      ...props.queryStringObj,
+    props.setFilterAndSearchState({
+      ...props.filterAndSearchState,
       [event.target.name]: event.target.value,
     });
   }

@@ -1,4 +1,5 @@
 import { developerData } from "./developerData.js";
+import { buildQueryString } from "./buildQueryString.js";
 import { filterData } from "./filterData.js";
 
-export { developerData, filterData };
+export { developerData, buildQueryString, filterData };
