@@ -22,16 +22,17 @@ export default function Search() {
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
 
+  // Reveal load more button
+  const [showLoadButton, setShowLoadButton] = useState(true);
+
   // API results
   const [animeData, setAnimeData] = useState(null);
-  console.log(animeData);
 
   // User search input
   const [searchText, setSearchText] = useState("");
 
   // Page number default
   const [page, setPage] = useState(1);
-  console.log(page);
 
   // Grabs next page of query results
   function moreResults() {
@@ -65,6 +66,7 @@ export default function Search() {
     const qs = buildQueryString(filterAndSearchState);
     window.history.pushState({}, "Search", `/search${qs}`);
     setTrigger(true);
+    setShowLoadButton(true);
   }
 
   // API call
@@ -77,10 +79,12 @@ export default function Search() {
       .then(function (res) {
         if (animeData === null) {
           setAnimeData(res.data.data.Page.media);
+        } else if (res.data.data.Page.media.length === 0) {
+          setShowLoadButton(false);
         } else {
-          setAnimeData([...animeData, ...res.data.data.Page.media]);
+          setAnimeData(res.data.data.Page.media);
         }
-
+        console.log(res.data.data.Page.media);
         setTrigger(false);
       })
       .catch(function (err) {
@@ -139,7 +143,9 @@ export default function Search() {
       )}
 
       <div className="load">
-        <button onClick={moreResults}>Load More</button>
+        {showLoadButton ? (
+          <button onClick={moreResults}>Load More</button>
+        ) : null}
       </div>
     </div>
   );
