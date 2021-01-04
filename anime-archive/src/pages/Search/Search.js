@@ -24,9 +24,20 @@ export default function Search() {
 
   // API results
   const [animeData, setAnimeData] = useState(null);
+  console.log(animeData);
 
   // User search input
   const [searchText, setSearchText] = useState("");
+
+  // Page number default
+  const [page, setPage] = useState(1);
+  console.log(page);
+
+  // Grabs next page of query results
+  function moreResults() {
+    setPage(page + 1);
+    setTrigger(true);
+  }
 
   const url = new URL(window.location.href);
 
@@ -61,10 +72,15 @@ export default function Search() {
     axios
       .post("https://graphql.anilist.co", {
         query: fetchUserSearch,
-        variables: filterAndSearchState,
+        variables: { ...filterAndSearchState, pageNum: page },
       })
       .then(function (res) {
-        setAnimeData(res.data.data.Page);
+        if (animeData === null) {
+          setAnimeData(res.data.data.Page.media);
+        } else {
+          setAnimeData([...animeData, ...res.data.data.Page.media]);
+        }
+
         setTrigger(false);
       })
       .catch(function (err) {
@@ -119,11 +135,11 @@ export default function Search() {
       {!animeData || trigger ? (
         <Loader />
       ) : (
-        animeData.media.map((item) => <AnimeCard key={item.id} data={item} />)
+        animeData.map((item) => <AnimeCard key={item.id} data={item} />)
       )}
 
       <div className="load">
-        <button>Load More</button>
+        <button onClick={moreResults}>Load More</button>
       </div>
     </div>
   );
