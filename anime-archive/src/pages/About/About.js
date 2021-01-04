@@ -12,13 +12,41 @@ export default function About() {
           <div className="anime-lovers">
             <h2 className="subheading">Anime Lovers</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deser
+              We are fans of manga, geeks by nature, addicted to the binge and
+              completely crazy about all things anime.
+              <br />
+              <br />
+              Anime Archive is a community of anime and magna enthusiasts who
+              simply would like a recommendation of a show to binge or to check
+              out what’s currently trending in the Anime Archive community! We
+              are here to inform, entertain, and inspire the binge through the
+              content and experiences we create.
+              <br />
+              <br />
+              The Anime Archive application is built using react on the client
+              side, as per the premium anime content we supply you, its actually
+              being provided by our good ole friends over at{" "}
+              <span>
+                <a
+                  className="api-resource"
+                  target="_blank"
+                  href="https://anilist.co/"
+                >
+                  Anilist
+                </a>
+              </span>
+              . If you or anyone you know would like to design and create an
+              application using the same data available to us, head over to the{" "}
+              <span>
+                <a
+                  className="api-resource"
+                  target="_blank"
+                  href="https://anilist.gitbook.io/anilist-apiv2-docs/"
+                >
+                  Anilist docs
+                </a>
+              </span>{" "}
+              for more information on their API. Thanks again!
             </p>
           </div>
         </section>
