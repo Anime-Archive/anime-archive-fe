@@ -84,7 +84,7 @@ export default function Search() {
         } else {
           setAnimeData(res.data.data.Page.media);
         }
-        console.log(res.data.data.Page.media);
+
         setTrigger(false);
       })
       .catch(function (err) {
