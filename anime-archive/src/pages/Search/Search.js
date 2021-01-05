@@ -37,7 +37,6 @@ export default function Search() {
   // Grabs next page of query results
   function moreResults() {
     setPage(page + 1);
-    setTrigger(true);
   }
 
   const url = new URL(window.location.href);
@@ -64,34 +63,36 @@ export default function Search() {
     event.preventDefault();
     filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
     const qs = buildQueryString(filterAndSearchState);
-    window.history.pushState({}, "Search", `/search${qs}`);
-    setTrigger(true);
+    window.location.replace(`/search${qs}`);
     setShowLoadButton(true);
   }
 
-  // API call
-  useEffect(() => {
-    axios
-      .post("https://graphql.anilist.co", {
+  // fetch user search function
+  const postUserSearch = async () => {
+    try {
+      const res = await axios.post("https://graphql.anilist.co", {
         query: fetchUserSearch,
         variables: { ...filterAndSearchState, pageNum: page },
-      })
-      .then(function (res) {
-        if (animeData === null) {
-          setAnimeData(res.data.data.Page.media);
-        } else if (res.data.data.Page.media.length === 0) {
-          setShowLoadButton(false);
-        } else {
-          setAnimeData(res.data.data.Page.media);
-        }
-
-        setTrigger(false);
-      })
-      .catch(function (err) {
-        console.log(err);
-        setTrigger(false);
       });
-  }, [trigger]);
+      if (animeData === null) {
+        setAnimeData(res.data.data.Page.media);
+      } else if (res.data.data.Page.media.length === 0) {
+        setShowLoadButton(false);
+      } else {
+        setAnimeData((prevAnime) => [
+          ...prevAnime,
+          ...res.data.data.Page.media,
+        ]);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // API call
+  useEffect(() => {
+    postUserSearch();
+  }, [page]);
 
   return (
     <div>
@@ -136,7 +137,7 @@ export default function Search() {
       ) : null}
 
       {/* Api search results turned into anime cards here */}
-      {!animeData || trigger ? (
+      {!animeData ? (
         <Loader />
       ) : (
         animeData.map((item) => <AnimeCard key={item.id} data={item} />)
