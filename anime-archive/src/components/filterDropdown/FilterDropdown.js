@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { filterData } from "../../utils/index.js";
 import "./FilterDropdown.css";
 
 const FilterDropdown = (props) => {
@@ -11,6 +13,37 @@ const FilterDropdown = (props) => {
     props.setTrigger(true);
   }
 
+  // Returns number of dropdown active filter to set as default
+  function filtersKey(name) {
+    // Creates an nested object using filterData for quick look ups
+    const answerKey = {};
+
+    for (let filter of filterData) {
+      let filterName = filter.name;
+      answerKey[filterName] = {};
+      for (let pair of filter.options) {
+        answerKey[filterName][pair.value] = pair.id;
+      }
+    }
+
+    // Check using argument by looking up value of dropdown from URL
+    if (props.filterAndSearchState[name]) {
+      return answerKey[name][props.filterAndSearchState[name]];
+    } else {
+      return 0;
+    }
+  }
+
+  useEffect(() => {
+    // After building each dropdown
+    // Check if we need to update active filter on dropdown
+    if (filtersKey(props.data.name) > 0) {
+      const dropdown = document.querySelector(`#${props.data.name}`);
+
+      dropdown.selectedIndex = filtersKey(props.data.name);
+    }
+  }, []);
+
   return (
     <div className="dropdownSpacer">
       <div className="dropdownCard">
@@ -21,6 +54,7 @@ const FilterDropdown = (props) => {
         <select
           name={props.data.name}
           onChange={(event) => filterHandler(event)}
+          id={`${props.data.name}`}
         >
           {/* Default option */}
           <option value={null}>None</option>
