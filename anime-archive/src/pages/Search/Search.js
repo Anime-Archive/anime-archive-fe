@@ -22,11 +22,22 @@ export default function Search() {
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
 
+  // Reveal load more button
+  const [showLoadButton, setShowLoadButton] = useState(true);
+
   // API results
   const [animeData, setAnimeData] = useState(null);
 
   // User search input
   const [searchText, setSearchText] = useState("");
+
+  // Page number default
+  const [page, setPage] = useState(1);
+
+  // Grabs next page of query results
+  function moreResults() {
+    setPage(page + 1);
+  }
 
   const url = new URL(window.location.href);
 
@@ -52,26 +63,36 @@ export default function Search() {
     event.preventDefault();
     filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
     const qs = buildQueryString(filterAndSearchState);
-    window.history.pushState({}, "Search", `/search${qs}`);
-    setTrigger(true);
+    window.location.replace(`/search${qs}`);
+    setShowLoadButton(true);
   }
+
+  // fetch user search function
+  const postUserSearch = async () => {
+    try {
+      const res = await axios.post("https://graphql.anilist.co", {
+        query: fetchUserSearch,
+        variables: { ...filterAndSearchState, pageNum: page },
+      });
+      if (animeData === null) {
+        setAnimeData(res.data.data.Page.media);
+      } else if (res.data.data.Page.media.length === 0) {
+        setShowLoadButton(false);
+      } else {
+        setAnimeData((prevAnime) => [
+          ...prevAnime,
+          ...res.data.data.Page.media,
+        ]);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // API call
   useEffect(() => {
-    axios
-      .post("https://graphql.anilist.co", {
-        query: fetchUserSearch,
-        variables: filterAndSearchState,
-      })
-      .then(function (res) {
-        setAnimeData(res.data.data.Page);
-        setTrigger(false);
-      })
-      .catch(function (err) {
-        console.log(err);
-        setTrigger(false);
-      });
-  }, [trigger]);
+    postUserSearch();
+  }, [page]);
 
   return (
     <div>
@@ -116,14 +137,16 @@ export default function Search() {
       ) : null}
 
       {/* Api search results turned into anime cards here */}
-      {!animeData || trigger ? (
+      {!animeData ? (
         <Loader />
       ) : (
-        animeData.media.map((item) => <AnimeCard key={item.id} data={item} />)
+        animeData.map((item) => <AnimeCard key={item.id} data={item} />)
       )}
 
       <div className="load">
-        <button>Load More</button>
+        {showLoadButton ? (
+          <button onClick={moreResults}>Load More</button>
+        ) : null}
       </div>
     </div>
   );
