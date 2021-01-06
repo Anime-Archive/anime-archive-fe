@@ -140,6 +140,7 @@ export default function Search() {
         <Filter
           setTrigger={setTrigger}
           setAnimeData={setAnimeData}
+          url={url}
           filterAndSearchState={filterAndSearchState}
           setFilterAndSearchState={setFilterAndSearchState}
         />
