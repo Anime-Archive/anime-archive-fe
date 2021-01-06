@@ -8,7 +8,7 @@ const Filter = (props) => {
   function clearFilter() {
     // Drop all filter values except searchTerm
     props.setFilterAndSearchState({
-      searchTerm: props.filterAndSearchState.searchTerm,
+      searchTerm: props.url.searchParams.get("searchTerm"),
       genre: null,
       sort: null,
       status: [
