@@ -53,8 +53,6 @@ export default function Search() {
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
   });
 
-  console.log(filterAndSearchState);
-
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
     setSearchText(event.target.value);
