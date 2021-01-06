@@ -27,6 +27,7 @@ const Filter = (props) => {
     for (let dropdown of allFilters) {
       dropdown.selectedIndex = 0;
     }
+    props.setAnimeData(null);
     props.setTrigger(true);
   }
 
@@ -44,6 +45,7 @@ const Filter = (props) => {
         {filterData.map((dropdown) => (
           <FilterDropdown
             setTrigger={props.setTrigger}
+            setAnimeData={props.setAnimeData}
             key={dropdown.id}
             data={dropdown}
             filterAndSearchState={props.filterAndSearchState}
