@@ -61,38 +61,41 @@ export default function Search() {
 
   function searchSubmit(event) {
     event.preventDefault();
-    filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
-    const qs = buildQueryString(filterAndSearchState);
-    window.location.replace(`/search${qs}`);
+    window.location.replace(
+      `/search?searchTerm=${(filterAndSearchState.searchTerm =
+        searchText.length > 0 ? searchText : null)}`
+    );
     setShowLoadButton(true);
   }
 
-  // fetch user search function
-  const postUserSearch = async () => {
-    try {
-      const res = await axios.post("https://graphql.anilist.co", {
-        query: fetchUserSearch,
-        variables: { ...filterAndSearchState, pageNum: page },
-      });
-      if (animeData === null) {
-        setAnimeData(res.data.data.Page.media);
-      } else if (res.data.data.Page.media.length === 0) {
-        setShowLoadButton(false);
-      } else {
-        setAnimeData((prevAnime) => [
-          ...prevAnime,
-          ...res.data.data.Page.media,
-        ]);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   // API call
   useEffect(() => {
-    postUserSearch();
-  }, [page]);
+    if (trigger) {
+      const qs = buildQueryString(filterAndSearchState);
+      window.history.pushState({}, "Search", `/search${qs}`);
+      setTrigger(false);
+    }
+    axios
+      .post("https://graphql.anilist.co", {
+        query: fetchUserSearch,
+        variables: { ...filterAndSearchState, pageNum: page },
+      })
+      .then((res) => {
+        if (animeData === null) {
+          setAnimeData(res.data.data.Page.media);
+        } else if (res.data.data.Page.media.length === 0) {
+          setShowLoadButton(false);
+        } else {
+          setAnimeData((prevAnime) => [
+            ...prevAnime,
+            ...res.data.data.Page.media,
+          ]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [page, trigger]);
 
   return (
     <div>
@@ -131,6 +134,8 @@ export default function Search() {
       {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
       {showFilters ? (
         <Filter
+          setTrigger={setTrigger}
+          setAnimeData={setAnimeData}
           filterAndSearchState={filterAndSearchState}
           setFilterAndSearchState={setFilterAndSearchState}
         />
