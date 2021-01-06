@@ -22,8 +22,19 @@ export default function Search() {
   // Reveal filters
   const [showFilters, setShowFilters] = useState(false);
 
+  // Reveal load more button
+  const [showLoadButton, setShowLoadButton] = useState(true);
+
   // API results
   const [animeData, setAnimeData] = useState(null);
+
+  // Page number default
+  const [page, setPage] = useState(1);
+
+  // Grabs next page of query results
+  function moreResults() {
+    setPage(page + 1);
+  }
 
   const url = new URL(window.location.href);
 
@@ -42,6 +53,8 @@ export default function Search() {
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
   });
 
+  console.log(filterAndSearchState);
+
   // Grabs user text from input field and stores in searchText above
   function searchHandler(event) {
     setSearchText(event.target.value);
@@ -53,27 +66,40 @@ export default function Search() {
   function searchSubmit(event) {
     event.preventDefault();
     filterAndSearchState.searchTerm = searchText.length > 0 ? searchText : null;
-    setTrigger(true);
+    const qs = buildQueryString(filterAndSearchState);
+    window.location.replace(`/search${qs}`);
+    setShowLoadButton(true);
   }
+
+  // fetch user search function
+  const postUserSearch = async () => {
+    try {
+      const res = await axios.post("https://graphql.anilist.co", {
+        query: fetchUserSearch,
+        variables: { ...filterAndSearchState, pageNum: page },
+      });
+      if (animeData === null) {
+        setAnimeData(res.data.data.Page.media);
+      } else if (res.data.data.Page.media.length === 0) {
+        setShowLoadButton(false);
+      } else {
+        setAnimeData((prevAnime) => [
+          ...prevAnime,
+          ...res.data.data.Page.media,
+        ]);
+
+        setTrigger(false);
+      }
+    } catch (err) {
+      console.log(err);
+      setTrigger(false);
+    }
+  };
 
   // API call
   useEffect(() => {
-    const qs = buildQueryString(filterAndSearchState);
-    window.history.pushState({}, "Search", `/search${qs}`);
-    axios
-      .post("https://graphql.anilist.co", {
-        query: fetchUserSearch,
-        variables: filterAndSearchState,
-      })
-      .then(function (res) {
-        setAnimeData(res.data.data.Page);
-        setTrigger(false);
-      })
-      .catch(function (err) {
-        console.log(err);
-        setTrigger(false);
-      });
-  }, [trigger]);
+    postUserSearch();
+  }, [page]);
 
   return (
     <div>
@@ -120,14 +146,16 @@ export default function Search() {
       ) : null}
 
       {/* Api search results turned into anime cards here */}
-      {!animeData || trigger ? (
+      {!animeData ? (
         <Loader />
       ) : (
-        animeData.media.map((item) => <AnimeCard key={item.id} data={item} />)
+        animeData.map((item) => <AnimeCard key={item.id} data={item} />)
       )}
 
       <div className="load">
-        <button>Load More</button>
+        {showLoadButton ? (
+          <button onClick={moreResults}>Load More</button>
+        ) : null}
       </div>
     </div>
   );

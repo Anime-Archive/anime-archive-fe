@@ -1,12 +1,9 @@
-.closerlookFloat {
-  background: #ffffff;
-  z-index: 1;
-  position: absolute;
-  top: 90px;
+.closerlookHeader {
+  padding: 0 10px;
+}
+
+.closerlookCard {
   padding: 3%;
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 .closerlookCover {
