@@ -11,6 +11,13 @@ const Filter = (props) => {
       searchTerm: props.filterAndSearchState.searchTerm,
       genre: null,
       sort: null,
+      status: [
+        "RELEASING",
+        "FINISHED",
+        "NOT_YET_RELEASED",
+        "CANCELLED",
+        "HIATUS",
+      ],
     });
 
     // Grab and set all dropdowns to a variable in an array
@@ -20,6 +27,8 @@ const Filter = (props) => {
     for (let dropdown of allFilters) {
       dropdown.selectedIndex = 0;
     }
+    props.setAnimeData(null);
+    props.setTrigger(true);
   }
 
   return (
@@ -35,6 +44,8 @@ const Filter = (props) => {
       <form className="dropdownFilters">
         {filterData.map((dropdown) => (
           <FilterDropdown
+            setTrigger={props.setTrigger}
+            setAnimeData={props.setAnimeData}
             key={dropdown.id}
             data={dropdown}
             filterAndSearchState={props.filterAndSearchState}

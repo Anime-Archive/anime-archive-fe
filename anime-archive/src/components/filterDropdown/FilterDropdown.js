@@ -1,5 +1,4 @@
 import "./FilterDropdown.css";
-
 const FilterDropdown = (props) => {
   // Updates the query object with new value based on filters changed
   function filterHandler(event) {
@@ -8,6 +7,8 @@ const FilterDropdown = (props) => {
       ...props.filterAndSearchState,
       [event.target.name]: event.target.value,
     });
+    props.setAnimeData(null);
+    props.setTrigger(true);
   }
 
   return (
