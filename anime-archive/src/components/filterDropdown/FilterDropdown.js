@@ -7,7 +7,8 @@ const FilterDropdown = (props) => {
     // User changes are recorded and saved as key/value format
     props.setFilterAndSearchState({
       ...props.filterAndSearchState,
-      [event.target.name]: event.target.value,
+      [event.target.name]:
+        event.target.value.length > 0 ? event.target.value : null,
     });
     props.setAnimeData(null);
     props.setTrigger(true);
@@ -57,7 +58,7 @@ const FilterDropdown = (props) => {
           id={`${props.data.name}`}
         >
           {/* Default option */}
-          <option value={null}>None</option>
+          <option value="">None</option>
 
           {/* Filter specific option based on data structure */}
           {props.data.options.map((option) => (
