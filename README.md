@@ -12,7 +12,7 @@ As anime enthusiasts, we can relate to the struggle of having to tracking down a
 
 # Screenshots
 
-![App Screenshot](/anime-archive/src/assets/img/appScreenshot.png)
+![App Screenshot](https://github.com/Anime-Archive/anime-archive-fe/blob/update%2Freadme/anime-archive/src/assets/img/appScreenshot.PNG)
 
 # Tech/framework used
 
