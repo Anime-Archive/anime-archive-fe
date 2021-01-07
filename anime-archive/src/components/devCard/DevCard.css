@@ -1,11 +1,10 @@
 .card {
-  left: 50%;
-  margin-left: -200px;
   background-color: black;
   border-radius: 22px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
   height: 125px;
+  margin: 0 auto;
   margin-bottom: 75px;
   max-width: 400px;
 }
@@ -59,4 +58,7 @@
   background: #f8f8ff;
   border-radius: 3px;
   padding: 2px;
+}
+
+.meet-the-developers {
 }
