@@ -128,4 +128,138 @@ export const filterData = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "Streaming On",
+    name: "streaming",
+    options: [
+      {
+        id: 1,
+        title: "Crunchyroll",
+        value: "crunchyroll",
+      },
+      {
+        id: 2,
+        title: "Funimation",
+        value: "funimation",
+      },
+      {
+        id: 3,
+        title: "Hidive",
+        value: "hidive",
+      },
+      {
+        id: 4,
+        title: "VRV",
+        value: "vrv",
+      },
+      {
+        id: 5,
+        title: "Netflix",
+        value: "netflix",
+      },
+      {
+        id: 6,
+        title: "Amazon",
+        value: "amazon",
+      },
+      {
+        id: 7,
+        title: "Hulu",
+        value: "hulu",
+      },
+      {
+        id: 8,
+        title: "HBO Max",
+        value: "hbo max",
+      },
+      {
+        id: 9,
+        title: "AnimeLab",
+        value: "animelab",
+      },
+      {
+        id: 10,
+        title: "Viz",
+        value: "viz",
+      },
+      {
+        id: 11,
+        title: "Adult Swim",
+        value: "adult swim",
+      },
+      {
+        id: 12,
+        title: "RetroCrush",
+        value: "retrocrush",
+      },
+      {
+        id: 13,
+        title: "Midnight Pulp",
+        value: "midnight pulp",
+      },
+      {
+        id: 14,
+        title: "Tubi TV",
+        value: "tubi tv",
+      },
+      {
+        id: 15,
+        title: "CONtv",
+        value: "contv",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Source Material",
+    name: "sMaterial",
+    options: [
+      {
+        id: 1,
+        title: "Original",
+        value: "ORIGINAL",
+      },
+      {
+        id: 2,
+        title: "Manga",
+        value: "MANGA",
+      },
+      {
+        id: 3,
+        title: "Light Novel",
+        value: "LIGHT_NOVEL",
+      },
+      {
+        id: 4,
+        title: "Novel",
+        value: "NOVEL",
+      },
+      {
+        id: 5,
+        title: "Anime",
+        value: "ANIME",
+      },
+      {
+        id: 6,
+        title: "Visual Novel",
+        value: "VISUAL_NOVEL",
+      },
+      {
+        id: 7,
+        title: "Video Game",
+        value: "VIDEO_GAME",
+      },
+      {
+        id: 8,
+        title: "Doujinshi",
+        value: "DOUJINSHI",
+      },
+      {
+        id: 9,
+        title: "Other",
+        value: "OTHER",
+      },
+    ],
+  },
 ];
