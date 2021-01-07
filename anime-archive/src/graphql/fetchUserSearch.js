@@ -1,7 +1,7 @@
 export const fetchUserSearch = `
-query ($searchTerm: String, $genre: String, $sort: [MediaSort], $status: [MediaStatus], $pageNum: Int) {
+query ($searchTerm: String, $sort: [MediaSort], $genre: String, $streaming: String, $sMaterial: MediaSource, $status: [MediaStatus], $pageNum: Int) {
   Page(page: $pageNum, perPage: 15) {
-    media(type: ANIME, search: $searchTerm, genre: $genre, sort: $sort, status_in: $status) {
+    media(type: ANIME, search: $searchTerm, sort: $sort, genre: $genre, status_in: $status, licensedBy: $streaming, source: $sMaterial) {
       id
       coverImage {
         large

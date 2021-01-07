@@ -48,6 +48,8 @@ export default function Search() {
     searchTerm: url.searchParams.get("searchTerm"),
     genre: url.searchParams.get("genre"),
     sort: url.searchParams.get("sort"),
+    streaming: url.searchParams.get("streaming"),
+    sMaterial: url.searchParams.get("sMaterial"),
     status: url.searchParams.get("status")
       ? url.searchParams.get("status")
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
