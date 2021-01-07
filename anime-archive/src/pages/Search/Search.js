@@ -51,6 +51,24 @@ export default function Search() {
     status: url.searchParams.get("status")
       ? url.searchParams.get("status")
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
+    sMaterial: url.searchParams.get("sMaterial")
+      ? url.searchParams.get("format")
+      : [
+          "ORIGINAL",
+          "MANGA",
+          "LIGHT_NOVEL",
+          "VISUAL_NOVEL",
+          "VIDEO_GAME",
+          "OTHER",
+          "NOVEL",
+          "DOUJINSHI",
+          "ANIME",
+        ],
+    streaming: url.searchParams.get("streaming"),
+    format: url.searchParams.get("format")
+      ? url.searchParams.get("format")
+      : ["TV", "TV_SHORT", "MOVIE", "SPECIAL", "OVA", "ONA", "MUSIC"],
+    year: url.searchParams.get("year"),
   });
 
   // Grabs user text from input field and stores in searchText above

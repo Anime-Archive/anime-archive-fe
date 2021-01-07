@@ -18,6 +18,20 @@ const Filter = (props) => {
         "CANCELLED",
         "HIATUS",
       ],
+      sMaterial: [
+        "ORIGINAL",
+        "MANGA",
+        "LIGHT_NOVEL",
+        "VISUAL_NOVEL",
+        "VIDEO_GAME",
+        "OTHER",
+        "NOVEL",
+        "DOUJINSHI",
+        "ANIME",
+      ],
+      streaming: null,
+      format: ["TV", "TV_SHORT", "MOVIE", "SPECIAL", "OVA", "ONA", "MUSIC"],
+      year: null,
     });
 
     // Grab and set all dropdowns to a variable in an array
