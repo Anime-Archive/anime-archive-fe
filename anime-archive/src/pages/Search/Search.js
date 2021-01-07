@@ -63,10 +63,15 @@ export default function Search() {
 
   function searchSubmit(event) {
     event.preventDefault();
-    window.location.replace(
-      `/search?searchTerm=${(filterAndSearchState.searchTerm =
-        searchText.length > 0 ? searchText : null)}`
-    );
+    if (searchText.length > 0) {
+      filterAndSearchState.searchTerm = searchText;
+      window.location.replace(
+        `/search?searchTerm=${filterAndSearchState.searchTerm}`
+      );
+    } else {
+      window.location.replace(`/search`);
+    }
+
     setShowLoadButton(true);
   }
 
