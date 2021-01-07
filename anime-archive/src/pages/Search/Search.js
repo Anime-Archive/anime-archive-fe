@@ -28,9 +28,6 @@ export default function Search() {
   // API results
   const [animeData, setAnimeData] = useState(null);
 
-  // User search input
-  const [searchText, setSearchText] = useState("");
-
   // Page number default
   const [page, setPage] = useState(1);
 
@@ -40,6 +37,11 @@ export default function Search() {
   }
 
   const url = new URL(window.location.href);
+
+  // User search input
+  const [searchText, setSearchText] = useState(
+    url.searchParams.get("searchTerm") ? url.searchParams.get("searchTerm") : ""
+  );
 
   // Holds users filter and search state
   const [filterAndSearchState, setFilterAndSearchState] = useState({
@@ -141,6 +143,7 @@ export default function Search() {
         <Filter
           setTrigger={setTrigger}
           setAnimeData={setAnimeData}
+          url={url}
           filterAndSearchState={filterAndSearchState}
           setFilterAndSearchState={setFilterAndSearchState}
         />
