@@ -2,13 +2,38 @@ import { useEffect } from "react";
 import { filterData } from "../../utils/index.js";
 import "./FilterDropdown.css";
 const FilterDropdown = (props) => {
+  const defaultFilters = {
+    status: [
+      "RELEASING",
+      "FINISHED",
+      "NOT_YET_RELEASED",
+      "CANCELLED",
+      "HIATUS",
+    ],
+    sMaterial: [
+      "ORIGINAL",
+      "MANGA",
+      "LIGHT_NOVEL",
+      "VISUAL_NOVEL",
+      "VIDEO_GAME",
+      "OTHER",
+      "NOVEL",
+      "DOUJINSHI",
+      "ANIME",
+    ],
+    format: ["TV", "TV_SHORT", "MOVIE", "SPECIAL", "OVA", "ONA", "MUSIC"],
+  };
   // Updates the query object with new value based on filters changed
   function filterHandler(event) {
     // User changes are recorded and saved as key/value format
     props.setFilterAndSearchState({
       ...props.filterAndSearchState,
       [event.target.name]:
-        event.target.value.length > 0 ? event.target.value : null,
+        event.target.value.length > 0
+          ? event.target.value
+          : !defaultFilters[event.target.name]
+          ? null
+          : defaultFilters[event.target.name],
     });
     props.setAnimeData(null);
     props.setTrigger(true);

@@ -52,7 +52,7 @@ export default function Search() {
       ? url.searchParams.get("status")
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
     sMaterial: url.searchParams.get("sMaterial")
-      ? url.searchParams.get("format")
+      ? url.searchParams.get("sMaterial")
       : [
           "ORIGINAL",
           "MANGA",
@@ -95,6 +95,7 @@ export default function Search() {
 
   // API call
   useEffect(() => {
+    console.log(filterAndSearchState);
     if (trigger) {
       const qs = buildQueryString(filterAndSearchState);
       window.history.pushState({}, "Search", `/search${qs}`);
