@@ -52,7 +52,7 @@ export default function Search() {
       ? url.searchParams.get("status")
       : ["RELEASING", "FINISHED", "NOT_YET_RELEASED", "CANCELLED", "HIATUS"],
     sMaterial: url.searchParams.get("sMaterial")
-      ? url.searchParams.get("format")
+      ? url.searchParams.get("sMaterial")
       : [
           "ORIGINAL",
           "MANGA",
