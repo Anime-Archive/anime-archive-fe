@@ -95,7 +95,6 @@ export default function Search() {
 
   // API call
   useEffect(() => {
-    console.log(filterAndSearchState);
     if (trigger) {
       const qs = buildQueryString(filterAndSearchState);
       window.history.pushState({}, "Search", `/search${qs}`);
