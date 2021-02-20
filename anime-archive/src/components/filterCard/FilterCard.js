@@ -6,8 +6,8 @@ const FilterCard = (props) => {
       <div
         className={`filterContent filter-${props.data.id}`}
         onClick={() => (
-          props.currentFilter(props.data.id),
-          props.setQueryFilter(props.data.querySort)
+          props.setFilterIndicator(props.data.id),
+          props.setCurrentFilter(props.data.querySort)
         )}
       >
         <p>{props.data.name}</p>
