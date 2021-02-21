@@ -1,5 +1,7 @@
-export const fetchCharacters = `
-query ($id: Int!) {
+import { gql } from "@apollo/client";
+
+export const GET_CHARACTERS = gql`
+  query GetCharacters($id: Int!) {
     Media(type: ANIME, id: $id) {
       id
       bannerImage
