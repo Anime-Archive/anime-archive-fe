@@ -116,6 +116,7 @@ export default function Closerlook() {
               )}
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     );
@@ -128,7 +129,6 @@ export default function Closerlook() {
       </div>
 
       <AnimeData />
-      <Footer />
     </>
   );
 }
