@@ -5,7 +5,7 @@ const characterButton = (props) => {
   // Inside each object have an id and an image
   return (
     <div className="cardContainer">
-      {props.data.map((character) => (
+      {props.anime.map((character) => (
         <div className="characterCardPadding" key={character.id}>
           <div className="characterCarouselCard">
             <div className="characterCarouselImageContainer">
