@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 //helper functions
 import { buildQueryString } from "../../utils/index.js";
 // Styling
@@ -10,8 +9,10 @@ import FilterIcon from "../../assets/icons/filterIcon.png";
 import "./Search.css";
 import Filter from "../../components/filter/Filter.js";
 import ExitIcon from "../../assets/icons/exitIcon.png";
-// Graphql
-import { fetchUserSearch } from "../../graphql";
+// Graphql queries
+import { GET_USER_SEARCH } from "../../graphql";
+// Apollo Client
+import { useQuery } from "@apollo/client";
 // Components
 import { Loader } from "../../components/loader/Loader.js";
 import { AnimeCard } from "../../components/animeCard/AnimeCard.js";
@@ -24,17 +25,6 @@ export default function Search() {
 
   // Reveal load more button
   const [showLoadButton, setShowLoadButton] = useState(true);
-
-  // API results
-  const [animeData, setAnimeData] = useState(null);
-
-  // Page number default
-  const [page, setPage] = useState(1);
-
-  // Grabs next page of query results
-  function moreResults() {
-    setPage(page + 1);
-  }
 
   const url = new URL(window.location.href);
 
@@ -76,9 +66,6 @@ export default function Search() {
     setSearchText(event.target.value);
   }
 
-  // Triggers API call on true
-  const [trigger, setTrigger] = useState(false);
-
   function searchSubmit(event) {
     event.preventDefault();
     if (searchText.length > 0) {
@@ -93,34 +80,74 @@ export default function Search() {
     setShowLoadButton(true);
   }
 
-  // API call
-  useEffect(() => {
-    if (trigger) {
-      const qs = buildQueryString(filterAndSearchState);
-      window.history.pushState({}, "Search", `/search${qs}`);
-      setTrigger(false);
+  // API call to retrive anime data reletive to use search attributes
+  const Search = () => {
+    const qs = buildQueryString(filterAndSearchState);
+    window.history.pushState({}, "Search", `/search${qs}`);
+
+    const { loading, error, data, fetchMore } = useQuery(GET_USER_SEARCH, {
+      variables: { ...filterAndSearchState, pageNum: 1 },
+    });
+
+    if (loading || !data) return <Loader />;
+    if (error) return <Loader />;
+
+    const results = data.Page.media;
+    const { currentPage, hasNextPage } = data.Page.pageInfo;
+
+    if (!hasNextPage) {
+      setShowLoadButton(false);
     }
-    axios
-      .post("https://graphql.anilist.co", {
-        query: fetchUserSearch,
-        variables: { ...filterAndSearchState, pageNum: page },
-      })
-      .then((res) => {
-        if (animeData === null) {
-          setAnimeData(res.data.data.Page.media);
-        } else if (res.data.data.Page.media.length === 0) {
-          setShowLoadButton(false);
-        } else {
-          setAnimeData((prevAnime) => [
-            ...prevAnime,
-            ...res.data.data.Page.media,
-          ]);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [page, trigger]);
+
+    return (
+      <>
+        {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
+        {showFilters ? (
+          <Filter
+            url={url}
+            filterAndSearchState={filterAndSearchState}
+            setFilterAndSearchState={setFilterAndSearchState}
+          />
+        ) : null}
+
+        {/* Api search results turned into anime cards here */}
+
+        {results.map((item) => (
+          <AnimeCard key={item.id} data={item} />
+        ))}
+
+        <div className="load">
+          {showLoadButton ? (
+            <button
+              onClick={() => {
+                //  Get additional anime and concatenate it with the pre existing one
+                fetchMore({
+                  variables: {
+                    ...filterAndSearchState,
+                    pageNum: currentPage + 1,
+                  },
+
+                  updateQuery: (prevResult, { fetchMoreResult }) => {
+                    if (!prevResult.Page.media) {
+                      return fetchMoreResult;
+                    } else {
+                      fetchMoreResult.Page.media = [
+                        ...prevResult.Page.media,
+                        ...fetchMoreResult.Page.media,
+                      ];
+                    }
+                    return fetchMoreResult;
+                  },
+                });
+              }}
+            >
+              Load More
+            </button>
+          ) : null}
+        </div>
+      </>
+    );
+  };
 
   return (
     <div>
@@ -156,29 +183,7 @@ export default function Search() {
         </div>
       </div>
 
-      {/* Dropdown Filters render when filter icon is clicked setting showFilters state to True */}
-      {showFilters ? (
-        <Filter
-          setTrigger={setTrigger}
-          setAnimeData={setAnimeData}
-          url={url}
-          filterAndSearchState={filterAndSearchState}
-          setFilterAndSearchState={setFilterAndSearchState}
-        />
-      ) : null}
-
-      {/* Api search results turned into anime cards here */}
-      {!animeData ? (
-        <Loader />
-      ) : (
-        animeData.map((item) => <AnimeCard key={item.id} data={item} />)
-      )}
-
-      <div className="load">
-        {showLoadButton ? (
-          <button onClick={moreResults}>Load More</button>
-        ) : null}
-      </div>
+      <Search />
     </div>
   );
 }

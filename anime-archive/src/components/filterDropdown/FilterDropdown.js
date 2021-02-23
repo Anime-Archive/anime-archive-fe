@@ -35,8 +35,6 @@ const FilterDropdown = (props) => {
           ? null
           : defaultFilters[event.target.name],
     });
-    props.setAnimeData(null);
-    props.setTrigger(true);
   }
 
   // Returns number of dropdown active filter to set as default
