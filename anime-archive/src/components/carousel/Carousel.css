@@ -4,15 +4,23 @@
 }
 
 .cardContainer {
+  padding-bottom: 50px;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin: 10px 0px 15px 0;
-  /* Removes desktop horizontal scrollbar for ... */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
-/* Removes horizontal scrollbar for Chrome and Safari */
 .cardContainer::-webkit-scrollbar {
-  display: none;
+  height: 5px;
+}
+
+.cardContainer::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #c4c4c4;
+  margin: 0 25px;
+}
+
+.cardContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #000;
 }
