@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import parse from "html-react-parser";
 // Components
 import { Loader } from "../../components/loader/Loader.js";
 import BackToTop from "../../components/backToTop/BackToTop.js";
@@ -120,7 +121,7 @@ export default function Closerlook() {
               <p>
                 {!animeData.description
                   ? "Unfortunatley, there is no description for this anime as of yet -- stay tuned! 😃"
-                  : animeData.description}
+                  : parse(animeData.description)}
               </p>
 
               <br />
