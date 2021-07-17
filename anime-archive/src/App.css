@@ -12,6 +12,8 @@
 
 html {
   font-size: 62.5%;
+  width: 700px;
+  margin: 0 auto;
 }
 
 /* Logo */
